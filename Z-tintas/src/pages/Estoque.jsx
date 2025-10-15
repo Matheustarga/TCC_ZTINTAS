@@ -1,11 +1,8 @@
 import React from 'react'
 
 const Estoque = () => {
-  return (
-    
-      <p>estoque</p>
-           
-    
+  return (    
+      <p>estoque</p>               
   )
 }
 

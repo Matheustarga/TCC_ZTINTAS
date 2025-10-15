@@ -7,6 +7,7 @@ import Catalogo from "./pages/Catalogo";
 import Estoque from "./pages/Estoque";
 import Funcionario from "./pages/Funcionario";
 import Home from "./pages/Home";
+import RotasProtegidas from "./pages/RotasProtegidas";
 
 const router = createBrowserRouter([
   {
@@ -15,36 +16,26 @@ const router = createBrowserRouter([
     errorElement: <PaginaErro />,
     children: [
       {
-        path: "/",
-        element: <Home />,
+        index: true,
+        element: <Login />,
       },
       {
         path: "login",
-        children: [
-          {
-            index: true,
-            element: <Login />,
-          },
-          {
-            path: "catalogo",
-            element: <Catalogo />,
-          },
-        ],
+        element:<Login />
       },
-      {
-        path: "funcionario",
-        element: <Funcionario />,
-      },
-      {
-        path: "estoque",
-        element: <Estoque />,
-      },
-      {
-        path: "catalogo",
-        element: <Catalogo />,
-      },
-    ],
+    ]
   },
+  {
+    path:"/",
+    element:<RotasProtegidas/>,
+    errorElement:<PaginaErro/>,
+    children:[
+      {
+        path:"home",
+        element:<Home/>
+      }
+    ]
+  }
 ]);
 
 export default router;

@@ -14,15 +14,16 @@ import { useVerificaLogin } from "../hooks/useUsuarios";
 //Importando a função useForm do pacote react-hook-form
 import { useForm } from "react-hook-form";
 import imgTelaLogin from "../assets/imgTelaLogin.png";
+import login_correto from "../assets/login_correto.png";
 //Importando o useState para tratar de variáveis
-import {useState} from "react"
+import { useState } from "react";
 //importação do Navigate para transitar entra as páginas
 import { useNavigate } from "react-router-dom";
 
 
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   //register = cria um objeto com os valores retirados dos inputs
   //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso
   //formState {erros} = objetoque guarda uma lista de erros que aconteceram na tentativa de envio
@@ -32,21 +33,21 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   //varaivel da classe do alert
-  const [alertaClasse, setAlertaClasse] = useState("d-none")
+  const [alertaClasse, setAlertaClasse] = useState("d-none");
 
-  const {verificaLogin} = useVerificaLogin()
+  const { verificaLogin } = useVerificaLogin();
   //caso o envio dê certo
   //data = objeto com todas as informações preenchidas nos campos do formulário
   const onSubmit = (data) => {
     console.log("Dados enviados: ", data);
-    const resposta = verificaLogin(data)
+    const resposta = verificaLogin(data);
     //caso a resposta seja positiva mostra o alerta e leva ele pra home
-    if(resposta === "Login Efetuado com sucesso"){
-      alert(resposta)
-      navigate("/home")
-    }else//se não, envia o alerta para exibir
-      {
-      setAlertaClasse("my-3 w-75 mx-auto")
+    if (resposta === "Login Efetuado com sucesso") {
+      alert(resposta);
+      navigate("/home");
+    } //se não, envia o alerta para exibir
+    else {
+      setAlertaClasse("my-3 w-75 mx-auto");
     }
   };
   // caso o envio dê errado
@@ -56,19 +57,37 @@ const Login = () => {
   };
 
   return (
-    <div style={{backgroundColor:"#081f66"}} >
-      <Container className="justify-content-center align-content-center min-vh-100 " style={{backgroundColor:"#081F66"}}>
+    <div style={{ backgroundColor: "#B9C6D8" }}>
+      <Container
+        className="justify-content-center align-content-center min-vh-100 gap-0"
+        style={{ backgroundColor: "#B9C6D8", position: "relative" }}
+      >
         {/* Linha para os campos de login */}
-        <Row style={{backgroundColor:"#081F66"}}>
+        <Row style={{ backgroundColor: "#081F66", borderRadius: "20px" }}>
           {/* coluna para o ícone da página */}
-          <Col>
+          <Col
+            className="gap-0 m-0 p-0"
+            style={{
+              borderTopLeftRadius: "20px",
+              borderBottomLeftRadius: "20px",
+              backgroundColor: "#FFFFFF",
+              borderRadius: "20px",
+              border: "white 20px solid",
+            }}
+          >
             {/* <BsBoxArrowInRight style={{fontSize:"500px", color:"white"}}/> */}
             {/* <BsSteam style={{ fontSize: "500px" }} /> */}
-            <img src={imgTelaLogin} alt="" />
+            <img
+              src={login_correto}
+              alt=""
+              style={{ width: "100%", height: "100%" }}
+            />
           </Col>
           {/* Coluna para os campos de login */}
-          <Col className="d-flex flex-column" style={{backgroundColor:"#081F66"}}>
-            
+          <Col
+            className="d-flex flex-column p-0"
+            style={{ backgroundColor: "#081F66", borderRadius: "20px" }}
+          >
             <Form
               style={{
                 width: "75%",
@@ -78,7 +97,7 @@ const Login = () => {
               }}
               onSubmit={handleSubmit(onSubmit, onError)}
             >
-              <h2 style={{color:"white"}}>LOGIN</h2>
+              <h2 style={{ color: "white" }}>LOGIN</h2>
               {/* Caixinha de email */}
               <FloatingLabel
                 controlId="inputEmail"
@@ -99,7 +118,9 @@ const Login = () => {
                       value.includes("@") || "Email deve possuir um @",
                   })}
                 />
-                {errors.email && (<p className="error">{errors.email.message}</p>)}
+                {errors.email && (
+                  <p className="error">{errors.email.message}</p>
+                )}
               </FloatingLabel>
               {/* Fim de Caixinha de email */}
               {/*Caixinha de senha */}
@@ -108,17 +129,28 @@ const Login = () => {
                 label="Senha"
                 className="mb-5"
               >
-                <Form.Control type="password" 
-                  {...register("senha",{
-                    required:"A senha é obrigatória"
+                <Form.Control
+                  type="password"
+                  {...register("senha", {
+                    required: "A senha é obrigatória",
                   })}
                 />
-                {errors.senha && (<p className="error">{errors.senha.message}</p>)}
+                {errors.senha && (
+                  <p className="error">{errors.senha.message}</p>
+                )}
               </FloatingLabel>
               {/*Fim da Caixinha de senha */}
 
               {/* Botão para envio */}
-              <Button variant="dark" type="submit" className="mb-5" size="lg">
+              <Button
+                type="submit"
+                className="mb-5 sombra_branca"
+                size="lg"
+                style={{
+
+                  
+                }}
+              >
                 Login
               </Button>
               {/* Fim do Botão para envio */}

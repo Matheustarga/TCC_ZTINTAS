@@ -16,13 +16,20 @@ import { useForm } from "react-hook-form";
 import imgTelaLogin from "../assets/imgTelaLogin.png";
 import login_correto from "../assets/login_correto.png";
 //Importando o useState para tratar de variáveis
-import { useState } from "react";
 //importação do Navigate para transitar entra as páginas
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 
 
 
 const Login = () => {
+  //Usa as variaveis de contexto do usuario
+  const {logout } = useContext(AuthContext)
+  //assim que entrar na pagina, o localStorage é resetado
+    useEffect(() =>{
+        logout();
+    },[])
   const navigate = useNavigate();
   //register = cria um objeto com os valores retirados dos inputs
   //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso

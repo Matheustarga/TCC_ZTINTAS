@@ -20,6 +20,8 @@ import login_correto from "../assets/login_correto.png";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 import { useContext, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Nav, Navbar, NavDropdown, Image, Accordion } from "react-bootstrap";
 
 
 
@@ -104,7 +106,7 @@ const Login = () => {
               }}
               onSubmit={handleSubmit(onSubmit, onError)}
             >
-              <h2 style={{ color: "white" }}>LOGIN</h2>
+              <h1 className="fonte_titulo" style={{ color: "white",paddingBottom:"62px"}}>Login</h1>
               {/* Caixinha de email */}
               <FloatingLabel
                 controlId="inputEmail"
@@ -136,7 +138,7 @@ const Login = () => {
                 label="Senha"
                 className="mb-5"
               >
-                <Form.Control
+                <Form.Control                
                   type="password"
                   {...register("senha", {
                     required: "A senha é obrigatória",
@@ -147,21 +149,27 @@ const Login = () => {
                 )}
               </FloatingLabel>
               {/*Fim da Caixinha de senha */}
+              {/* Link para recuperação de senha */}
+
+              {/* Fim Link para recuperação de senha */}
 
               {/* Botão para envio */}
-              <Button
+              <Button 
                 type="submit"
-                className="mb-5 sombra_branca"
+                className="mb-5 sombra_branca fonte_botao"
                 size="lg"
-                style={{
-
-                  
+                style={{                  
                 }}
               >
                 Login
               </Button>
+                <Nav>
+                  <NavLink className="text-white " style={{textDecoration:"none",margin:"auto"}} as={NavLink} to={"/redefinir-senha"}>
+                    Esqueceu sua senha?
+                  </NavLink>                  
+                </Nav>              
               {/* Fim do Botão para envio */}
-
+              
               {/* Alerta caso haja algum erro */}
               <Alert variant="danger" className={alertaClasse}>
                 Usuário ou senha inválidos

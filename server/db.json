@@ -16,14 +16,23 @@
             "tipo":"Gerente",
             "imagemUrl":"https://i.pinimg.com/736x/f3/3a/e6/f33ae622cfeec7c149acae05542fcfb2.jpg"
         },
-                {
+        {
             "id": 3,
             "nome": "Eduardo",
             "email":"eduardo@gmail.com",
             "senha":"5",
             "tipo":"Administrador",
             "imagemUrl":null
+        },
+        {
+            "id": 4,
+            "nome": "Fernando",
+            "email":"fernandobt481@gmail.com",
+            "senha":"5",
+            "tipo":"Administrador",
+            "imagemUrl":"https://scinter.com.br/wp-content/uploads/2024/11/image-3-17-1024x631.jpg"
         }
+
         
 
     ],

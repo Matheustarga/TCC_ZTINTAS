@@ -34,4 +34,11 @@ font-family: "Inter", sans-serif;
     border:#0000ff 1px solid
 }
 
+
 /* fim Pg login */
+
+/* NAV BAR */
+.bg-custom-blue {
+  background-color: #081F66 !important;
+}
+/* FIM NAVBAR */

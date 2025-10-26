@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-//Reaproveitamento de estrutura com o Outlet
-import { Outlet } from 'react-router-dom'
-import NavBar from './components/NavBar'
+import "./App.css";
+// Importando o outlet, do REA
+import { Outlet } from "react-router-dom";
+
+// Importação dos componentes do bootstrap
+import Container from "react-bootstrap/Container"
 
 function App() {
-  
-
   return (
-    <>
-      
-      <Outlet />
-    </>
-  )
+    <div className="App d-flex">
+      <Container className="text-center">
+        <Outlet />
+      </Container>
+    </div>
+  );
 }
 
-export default App
+export default App;

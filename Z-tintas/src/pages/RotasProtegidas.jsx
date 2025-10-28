@@ -22,7 +22,7 @@ const RotasProtegidas = () => {
   return (
     <div className='App d-flex'>
       {/* Barra de navegação lateral */}
-          <div className="position-fixed top-0 start-0 min-vh-100 bg-danger">
+          <div className="position-fixed top-0 start-0 min-vh-100 ">
       <BarraNavegacao />
      </div>
 

@@ -41,7 +41,7 @@ const BarraNavegacao = () => {
     <div
     
       className="d-flex flex-column flex-shrink-0 p-3 text-white bg-custom-blue min-vh-100 max-vh-100"
-      style={{ width: "250px" }}
+      style={{ width: "250px" , borderBottomRightRadius: "20px", borderTopRightRadius: "20px" }}
     >
       {/* Logo da empresa */}
 
@@ -56,19 +56,19 @@ const BarraNavegacao = () => {
         <span className="fs-2 ms-1 me-2">Tintas</span>
       </Navbar.Brand>
 
-      <hr className=" border-secondary" />
+      <hr className="border-white"  />
 
       {/* Opções de catalogo*/}
       <Nav className="flex-column mb-auto bg-custom-blue" >
-        <Nav.Link as={NavLink} to="/catalogo" className="text-white px-2 mb-2">
+        <Nav.Link as={NavLink} to="/catalogo" className="text-white px-2 mb-3">
           < PiPaintBucketFill className="fs-4"/>
-          <span className="fs-4 ms-2 {styles.navLateral}">Catalogo</span>
+          <span className="fs-4 ms-2 {styles.navLateral}">Catálogo</span>
         </Nav.Link>
 
         {/* Criando o arcordeon */}
         <Accordion flush className="flex-column mb-auto bg-custom-blue " defaultActiveKey>
           {/* Páginas estoque */}
-          <Accordion.Item eventKey="0" className=" text-white bg-custom-blue">
+          <Accordion.Item eventKey="0" className=" text-white bg-custom-blue mb-3">
             <Accordion.Header
               className={styles.accordionHeader}
               style={{
@@ -89,7 +89,7 @@ const BarraNavegacao = () => {
                   className="text-white ps-4"
                 >
                   <RiFunctionAddFill className="fs-4 mb-2"/>
-                  <span className="ms-2 fs-5 fs-5"> Cadastrar Item </span>
+                  <span className="ms-2 fs-5 fs-5"> Cadastrar  </span>
                 </Nav.Link>
                 {/* Opção 2 */}
                 <Nav.Link
@@ -98,7 +98,7 @@ const BarraNavegacao = () => {
                   className="text-white ps-4"
                 >
                   <TbListSearch className="fs-4 mb-2"/>
-                  <span className="ms-2 fs-5 fs-5"> Consultar Item </span>
+                  <span className="ms-2 fs-5 fs-5"> Consultar  </span>
                 </Nav.Link>
               </Nav>
             </Accordion.Body>
@@ -106,7 +106,7 @@ const BarraNavegacao = () => {
           {/* fim estoque */}
 
           {/* Páginas clientes */}
-          <Accordion.Item eventKey="1" className=" text-white bg-custom-blue">
+          <Accordion.Item eventKey="1" className=" text-white bg-custom-blue mb-3">
             <Accordion.Header
               className={styles.accordionHeader}
               style={{
@@ -127,7 +127,7 @@ const BarraNavegacao = () => {
                   className="text-white ps-4"
                 >
                   <IoPersonAddSharp className="fs-4 mb-2"/>
-                  <span className="ms-2 fs-5 fs-5"> Cadastrar Cliente </span>
+                  <span className="ms-2 fs-5 fs-5"> Cadastrar  </span>
                 </Nav.Link>
                 {/* Opção 2 */}
                 <Nav.Link
@@ -136,7 +136,7 @@ const BarraNavegacao = () => {
                   className="text-white ps-4"
                 >
                   <MdPersonSearch className="fs-4 mb-2"/>
-                  <span className="ms-2 fs-5 fs-5"> Consultar Cliente</span>
+                  <span className="ms-2 fs-5 fs-5"> Consultar </span>
                 </Nav.Link>
               </Nav>
             </Accordion.Body>
@@ -144,7 +144,7 @@ const BarraNavegacao = () => {
           {/* fim clientes */}
 
           {/* Páginas funcionarios */}
-          <Accordion.Item eventKey="2" className="bg-custom-blue text-white">
+          <Accordion.Item eventKey="2" className="bg-custom-blue text-white mb-3">
             <Accordion.Header
               className={styles.accordionHeader}
               style={{
@@ -154,7 +154,7 @@ const BarraNavegacao = () => {
               }}
             >
               <BsFillPersonVcardFill className="fs-4 mb-2"/>
-              <span className="ms-2 fs-4 mb-2"> Funcionarios </span>
+              <span className="ms-2 fs-4 mb-2"> Funcionários </span>
             </Accordion.Header>
             <Accordion.Body className={`p-0 bg-custom-blue ${styles.accordionBody}`}>
               <Nav className="flex-column">
@@ -166,7 +166,7 @@ const BarraNavegacao = () => {
                 >
                   <FaPersonCirclePlus className="fs-4 mb-2"/>
                   <span className="ms-2 fs-5 fs-5">
-                    Cadastrar Funcionarios
+                    Cadastrar 
                   </span>
                 </Nav.Link>
                 {/* Opção 2 */}
@@ -177,7 +177,7 @@ const BarraNavegacao = () => {
                 >
                   <FaSearch className="fs-4 mb-2"/>
                   <span className="ms-2 fs-5 fs-5">                  
-                    Consultar Funcionarios
+                    Consultar 
                   </span>
                 </Nav.Link>
               </Nav>

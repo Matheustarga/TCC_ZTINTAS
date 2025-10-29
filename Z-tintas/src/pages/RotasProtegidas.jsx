@@ -26,12 +26,13 @@ const RotasProtegidas = () => {
       <BarraNavegacao />
      </div>
 
-      {/* Conteudo principal, dependendo de qual rota está */}
-      <div className='d-flex flex-column min-vh-100 flex-grow-1 p-2 justify-content-center' style={{marginLeft:"350px"}}>
+      {/* Conteúdo principal, dependendo de qual rota está */}
+     <div className="d-flex flex-column min-vh-100 flex-grow-1 p-2 justify-content-center"
+          style={{marginLeft:"350px"}}>
         <Container fluid>
-          <h1>Conteúdo Principal</h1>
+          <Outlet />
         </Container>
-      </div>      
+      </div>   
     </div>
   )
 }

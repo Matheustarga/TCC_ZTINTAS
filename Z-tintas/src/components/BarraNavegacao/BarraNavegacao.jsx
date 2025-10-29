@@ -85,7 +85,7 @@ const BarraNavegacao = () => {
                 {/* Opção 1 */}
                 <Nav.Link
                   as={NavLink}
-                  to="/produtos/cadastrar"
+                  to="/estoque"
                   className="text-white ps-4"
                 >
                   <RiFunctionAddFill className="fs-4 mb-2"/>
@@ -94,7 +94,7 @@ const BarraNavegacao = () => {
                 {/* Opção 2 */}
                 <Nav.Link
                   as={NavLink}
-                  to="/produtos/consultar"
+                  to="/estoque/consultar"
                   className="text-white ps-4"
                 >
                   <TbListSearch className="fs-4 mb-2"/>
@@ -123,7 +123,7 @@ const BarraNavegacao = () => {
                 {/* Opção 1 */}
                 <Nav.Link
                   as={NavLink}
-                  to="/clientes/cadastrar"
+                  to="/cliente"
                   className="text-white ps-4"
                 >
                   <IoPersonAddSharp className="fs-4 mb-2"/>
@@ -132,7 +132,7 @@ const BarraNavegacao = () => {
                 {/* Opção 2 */}
                 <Nav.Link
                   as={NavLink}
-                  to="/clientes/consultar"
+                  to="/cliente/consultar"
                   className="text-white ps-4"
                 >
                   <MdPersonSearch className="fs-4 mb-2"/>
@@ -161,7 +161,7 @@ const BarraNavegacao = () => {
                 {/* Opção 1 */}
                 <Nav.Link
                   as={NavLink}
-                  to="/produtos/cadastrar"
+                  to="/funcionario"
                   className="text-white ps-4"
                 >
                   <FaPersonCirclePlus className="fs-4 mb-2"/>
@@ -172,7 +172,7 @@ const BarraNavegacao = () => {
                 {/* Opção 2 */}
                 <Nav.Link
                   as={NavLink}
-                  to="/produtos/consultar"
+                  to="/funcionario/consultar"
                   className="text-white ps-4"
                 >
                   <FaSearch className="fs-4 mb-2"/>

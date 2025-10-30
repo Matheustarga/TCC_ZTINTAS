@@ -8,21 +8,43 @@ import Image from "react-bootstrap/Image";
 
 //Importando a função useForm do pacote react-hook-form
 import { useForm } from "react-hook-form";
-
+import { useListaFuncionarios, useCadastrarFuncionario } from "../../hooks/useFuncionarios";
 
 const FormularioFuncionario = (props) => {
+const {cadastrarFuncionario} = useCadastrarFuncionario();
+
 //register = cria um objeto com os valores retirados dos inputs
   //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso
   //formState {erros} = objetoque guarda uma lista de erros que aconteceram na tentativa de envio
+
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch
   } = useForm();
+    // FUNÇÕES QUE LIDAM COM O SUCESSO OU ERRO DO FORMULÁRIO
+  // Função pra caso dê certo na validação do formulário
+  // data é o objeto com as informações dos campos do formulário
+  const onSubmit = async (data) => {
+      console.log("Dados:", data)
+      if (props.page === "cadastro") {
+        //Envia o objeto data para o hook inserir produto
+       await cadastrarFuncionario(data)
+        alert("Funcionario cadastrado com sucesso")
+      }
+      else {
+        // Depois nóis vê
+      }
+  }
+  // Caso tenha algum erro no formulário, mostra as mensagens de erro nos campos
+  const onError = (errors) => {
+      console.log("Erros:" , errors);
+  }
   return (
     <div className='text-center'>
-      <Form>
+      <Form className="mt-3 w-full" onSubmit={handleSubmit(onSubmit,onError)}>
         <Row>
           <Col>
             <FloatingLabel controlId="FI-NOME" label="Nome" className="mb-5">
@@ -33,11 +55,7 @@ const FormularioFuncionario = (props) => {
                   minLength: {
                     value: 2,
                     message: "O Nome deve ter pelo menos dois caracteres",
-                  },
-                  maxLength: {
-                    value: 10,
-                    message: "O Nome deve ter no máximo 10 caracteres",
-                  },
+                  }
                 })}
               ></Form.Control>
               {errors.nome && <p className="error">{errors.nome.message}</p>}
@@ -50,13 +68,10 @@ const FormularioFuncionario = (props) => {
                 {...register("cpf", {
                   required: "O Nome é obrigatório",
                   minLength: {
-                    value: 2,
-                    message: "O Nome deve ter pelo menos dois caracteres",
-                  },
-                  maxLength: {
-                    value: 10,
-                    message: "O Nome deve ter no máximo 10 caracteres",
-                  },
+                    value: 11,
+                    message: "O CPF deve ter pelo menos onze caracteres",
+                  }
+
                 })}
               ></Form.Control>
               {errors.cpf && <p className="error">{errors.cpf.message}</p>}
@@ -74,10 +89,7 @@ const FormularioFuncionario = (props) => {
                     value: 2,
                     message: "O cargo deve ter pelo menos dois caracteres",
                   },
-                  maxLength: {
-                    value: 10,
-                    message: "O cargo deve ter no máximo 10 caracteres",
-                  },
+
                 })}
               ></Form.Control>
               {errors.cargo && <p className="error">{errors.cargo.message}</p>}
@@ -93,10 +105,7 @@ const FormularioFuncionario = (props) => {
                     value: 2,
                     message: "O numero deve ter pelo menos dois caracteres",
                   },
-                  maxLength: {
-                    value: 10,
-                    message: "O numero deve ter no máximo 10 caracteres",
-                  },
+
                 })}
               ></Form.Control>
               {errors.numero && <p className="error">{errors.numero.message}</p>}
@@ -113,10 +122,7 @@ const FormularioFuncionario = (props) => {
                     value: 2,
                     message: "O email deve ter pelo menos dois caracteres",
                   },
-                  maxLength: {
-                    value: 10,
-                    message: "O email deve ter no máximo 10 caracteres",
-                  },
+
                 })}
               ></Form.Control>
               {errors.email && <p className="error">{errors.email.message}</p>}
@@ -132,10 +138,7 @@ const FormularioFuncionario = (props) => {
                     value: 2,
                     message: "O usuario deve ter pelo menos dois caracteres",
                   },
-                  maxLength: {
-                    value: 10,
-                    message: "O usuario deve ter no máximo 10 caracteres",
-                  },
+
                 })}
               ></Form.Control>
               {errors.usuario && <p className="error">{errors.usuario.message}</p>}
@@ -152,10 +155,7 @@ const FormularioFuncionario = (props) => {
                     value: 2,
                     message: "O senha deve ter pelo menos dois caracteres",
                   },
-                  maxLength: {
-                    value: 10,
-                    message: "O senha deve ter no máximo 10 caracteres",
-                  },
+
                 })}
               ></Form.Control>
               {errors.senha && <p className="error">{errors.senha.message}</p>}
@@ -171,10 +171,7 @@ const FormularioFuncionario = (props) => {
                     value: 2,
                     message: "O campo deve ter pelo menos dois caracteres",
                   },
-                  maxLength: {
-                    value: 10,
-                    message: "O campo deve ter no máximo 10 caracteres",
-                  },
+
                 })}
               ></Form.Control>
               {errors.confsenha && <p className="error">{errors.confsenha.message}</p>}

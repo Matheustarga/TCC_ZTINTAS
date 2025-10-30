@@ -87,14 +87,14 @@
     "funcionarios":[
         {
             "id": 1,
-            "nome": "Matheus funcionario",
-            "cpf":"12345678989",
             "cargo":"Gerente",
-            "numero":"996644414",
+            "confsenha":"5",
+            "cpf":"12345678989",
             "email":"matheus@gmail.com",
-            "usuario":"matheustarga",
+            "nome": "Matheus funcionario",                      
+            "numero":"996644414",
             "senha":"5",
-            "confsenha":"5"
+            "usuario":"matheustarga"                   
         }
     ]
 }

@@ -85,6 +85,16 @@
         }
     ],
     "funcionarios":[
-        
+        {
+            "id": 1,
+            "nome": "Matheus funcionario",
+            "cpf":"12345678989",
+            "cargo":"Gerente",
+            "numero":"996644414",
+            "email":"matheus@gmail.com",
+            "usuario":"matheustarga",
+            "senha":"5",
+            "confsenha":"5"
+        }
     ]
 }

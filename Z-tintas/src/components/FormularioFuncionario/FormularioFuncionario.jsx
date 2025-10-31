@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { useListaFuncionarios, useCadastrarFuncionario } from "../../hooks/useFuncionarios";
 
 const FormularioFuncionario = (props) => {
-const {cadastrarFuncionario} = useCadastrarFuncionario();
+const { cadastrarFuncionario } = useCadastrarFuncionario();
 
 //register = cria um objeto com os valores retirados dos inputs
   //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso
@@ -27,12 +27,14 @@ const {cadastrarFuncionario} = useCadastrarFuncionario();
     // FUNÇÕES QUE LIDAM COM O SUCESSO OU ERRO DO FORMULÁRIO
   // Função pra caso dê certo na validação do formulário
   // data é o objeto com as informações dos campos do formulário
-  const onSubmit = async (data) => {
+  const onSubmit =  (data) => {
       console.log("Dados:", data)
-      if (props.page === "cadastro") {
+      if (props.page === "cadastrar") {
+        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        
         //Envia o objeto data para o hook inserir produto
-       await cadastrarFuncionario(data)
-        alert("Funcionario cadastrado com sucesso")
+        cadastrarFuncionario(data)
+        alert("Funcionario cadastrado com sucessoa")
       }
       else {
         // Depois nóis vê

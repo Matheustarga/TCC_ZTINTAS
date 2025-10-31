@@ -1,100 +1,103 @@
 {
-    "usuarios":[
-        {
-            "id": 1,
-            "nome": "Matheus",
-            "email":"matheus@gmail.com",
-            "senha":"5",
-            "tipo":"Administrador",
-            "imagemUrl":"https://s2-oglobo.glbimg.com/LmoAEXZ1pD441PnbzCUeFkZXHzQ=/0x0:442x592/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2025/N/F/KO00bvSTOMwQZhHQRhsg/patixa3.png"
-        },
-        {
-            "id": 2,
-            "nome": "Grazi",
-            "email":"Grazi@gmail.com",
-            "senha":"8",
-            "tipo":"Gerente",
-            "imagemUrl":"https://i.pinimg.com/736x/f3/3a/e6/f33ae622cfeec7c149acae05542fcfb2.jpg"
-        },
-        {
-            "id": 3,
-            "nome": "Eduardo",
-            "email":"eduardo@gmail.com",
-            "senha":"5",
-            "tipo":"Administrador",
-            "imagemUrl":null
-        },
-        {
-            "id": 4,
-            "nome": "Fernando",
-            "email":"fernandobt481@gmail.com",
-            "senha":"5",
-            "tipo":"Administrador",
-            "imagemUrl":"https://scinter.com.br/wp-content/uploads/2024/11/image-3-17-1024x631.jpg"
-        }
-
-        
-
-    ],
-    "produtos":[
-        {
-            "id":1,
-            "SKU":"0123456789",
-            "nome": "Shampoo CR7",
-            "descricao":"Anticaspa, shampoo dos vencedores",
-            "categoria":"Saúde e Beleza",
-            "marca":"Clear men",
-            "medida":"mL",
-            "tamanho": 400,
-            "precoCusto":0,
-            "precoVenda":0,
-            "quantidade":7,
-            "fornecedor":"Ambev",
-            "imagemUrl":"https://www.arenaatacado.com.br/on/demandware.static/-/Sites-storefront-catalog-sv/default/dw81b33c52/Produtos/501522-7891150019416-shampoo%20anticaspa%20clear%20men%20sports%20cristiano%20ronaldo%20limpeza%20profunda%20400ml-clear-5.jpg"
-
-        }
-
-    ],
-    "categorias":[
-        {
-            "id":1,
-            "nome":"Saúde e Beleza"
-        }
-
-    ],
-    "clientes":[
-        {
-            "id":1,
-            "nome":"Maria das Graças",
-            "email":"maria@gmail.com",
-            "documento":"12345678910",
-            "tipo":"PF",
-            "telefone":"27970707070",
-            "dataNascimento":"2007-07-07",
-            "endereco":{
-                "cep":"29999666",
-                "logradouro":"Rua dos Alfeneiros",
-                "complemento":"Número 4",
-                "bairro":"Terra do nunca",
-                "cidade":"Ilha da bruxaria",
-                "uf":"SP"
-            },
-            "status":"Ativo"
-
-            
-        }
-    ],
-    "funcionarios":[
-        {
-            "id": 1,
-            "cargo":"Gerente",
-            "confsenha":"5",
-            "cpf":"12345678989",
-            "email":"matheus@gmail.com",
-            "nome": "Matheus funcionario",                      
-            "numero":"996644414",
-            "senha":"5",
-            "usuario":"matheustarga"                   
-        }
-    ]
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Matheus",
+      "email": "matheus@gmail.com",
+      "senha": "5",
+      "tipo": "Administrador",
+      "imagemUrl": "https://s2-oglobo.glbimg.com/LmoAEXZ1pD441PnbzCUeFkZXHzQ=/0x0:442x592/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2025/N/F/KO00bvSTOMwQZhHQRhsg/patixa3.png"
+    },
+    {
+      "id": "2",
+      "nome": "Grazi",
+      "email": "Grazi@gmail.com",
+      "senha": "8",
+      "tipo": "Gerente",
+      "imagemUrl": "https://i.pinimg.com/736x/f3/3a/e6/f33ae622cfeec7c149acae05542fcfb2.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "Eduardo",
+      "email": "eduardo@gmail.com",
+      "senha": "5",
+      "tipo": "Administrador",
+      "imagemUrl": null
+    },
+    {
+      "id": "4",
+      "nome": "Fernando",
+      "email": "fernandobt481@gmail.com",
+      "senha": "5",
+      "tipo": "Administrador",
+      "imagemUrl": "https://scinter.com.br/wp-content/uploads/2024/11/image-3-17-1024x631.jpg"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "1",
+      "SKU": "0123456789",
+      "nome": "Shampoo CR7",
+      "descricao": "Anticaspa, shampoo dos vencedores",
+      "categoria": "Saúde e Beleza",
+      "marca": "Clear men",
+      "medida": "mL",
+      "tamanho": 400,
+      "precoCusto": 0,
+      "precoVenda": 0,
+      "quantidade": 7,
+      "fornecedor": "Ambev",
+      "imagemUrl": "https://www.arenaatacado.com.br/on/demandware.static/-/Sites-storefront-catalog-sv/default/dw81b33c52/Produtos/501522-7891150019416-shampoo%20anticaspa%20clear%20men%20sports%20cristiano%20ronaldo%20limpeza%20profunda%20400ml-clear-5.jpg"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Saúde e Beleza"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nome": "Maria das Graças",
+      "email": "maria@gmail.com",
+      "documento": "12345678910",
+      "tipo": "PF",
+      "telefone": "27970707070",
+      "dataNascimento": "2007-07-07",
+      "endereco": {
+        "cep": "29999666",
+        "logradouro": "Rua dos Alfeneiros",
+        "complemento": "Número 4",
+        "bairro": "Terra do nunca",
+        "cidade": "Ilha da bruxaria",
+        "uf": "SP"
+      },
+      "status": "Ativo"
+    }
+  ],
+  "funcionarios": [
+    {
+      "id": "1",
+      "cargo": "Gerente",
+      "confsenha": "5",
+      "cpf": "12345678989",
+      "email": "matheus@gmail.com",
+      "nome": "Matheus funcionario",
+      "numero": "996644414",
+      "senha": "5",
+      "usuario": "matheustarga"
+    },
+    {
+      "id": "254f",
+      "nome": "aaaaa",
+      "cpf": "12345678989",
+      "cargo": "gerente",
+      "numero": "1254564",
+      "email": "matheussss@gmail.com",
+      "usuario": "the thteteutetete",
+      "senha": "55",
+      "confsenha": "55"
+    }
+  ]
 }

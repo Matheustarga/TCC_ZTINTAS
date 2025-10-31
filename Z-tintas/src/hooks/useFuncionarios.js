@@ -24,7 +24,7 @@ export function useListaFuncionarios(){
 
 export function useCadastrarFuncionario() {
     const cadastrarFuncionario = async (data) => {
-        
+        console.log("To aqui")
         const req = await fetch(`${url}/funcionarios`,{
             method:"POST",
             headers:{ "Content-type": "application/json" },

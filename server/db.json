@@ -5,7 +5,7 @@
       "nome": "Matheus",
       "email": "matheus@gmail.com",
       "senha": "5",
-      "tipo": "Administrador",
+      "cargo": "Administrador",
       "imagemUrl": "https://s2-oglobo.glbimg.com/LmoAEXZ1pD441PnbzCUeFkZXHzQ=/0x0:442x592/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2025/N/F/KO00bvSTOMwQZhHQRhsg/patixa3.png"
     },
     {
@@ -13,7 +13,7 @@
       "nome": "Grazi",
       "email": "Grazi@gmail.com",
       "senha": "8",
-      "tipo": "Gerente",
+      "cargo": "Gerente",
       "imagemUrl": "https://i.pinimg.com/736x/f3/3a/e6/f33ae622cfeec7c149acae05542fcfb2.jpg"
     },
     {
@@ -21,7 +21,7 @@
       "nome": "Eduardo",
       "email": "eduardo@gmail.com",
       "senha": "5",
-      "tipo": "Administrador",
+      "cargo": "Administrador",
       "imagemUrl": null
     },
     {
@@ -29,8 +29,31 @@
       "nome": "Fernando",
       "email": "fernandobt481@gmail.com",
       "senha": "5",
-      "tipo": "Administrador",
+      "cargo": "Administrador",
       "imagemUrl": "https://scinter.com.br/wp-content/uploads/2024/11/image-3-17-1024x631.jpg"
+    },
+    {
+      "id": "cfd2",
+      "nome": "zeze",
+      "cpf": "12312312312",
+      "cargo": "faz tudo",
+      "numero": "2799999999",
+      "email": "zezeca@gmail.com",
+      "usuario": "zeca",
+      "senha": "55",
+      "confsenha": "55"
+    },
+    {
+      "id": "1391",
+      "nome": "fernando",
+      "cpf": "12312312312",
+      "cargo": "menino do salgado",
+      "numero": "2799999999",
+      "email": "indiosemacento@gmail.com",
+      "usuario": "tupi",
+      "senha": "777",
+      "imagemUrl": "https://i.pinimg.com/736x/38/e0/63/38e0631e3d3ada84b74f6d3b1f590da6.jpg",
+      "confsenha": "777"
     }
   ],
   "produtos": [
@@ -96,6 +119,17 @@
       "numero": "1254564",
       "email": "matheussss@gmail.com",
       "usuario": "the thteteutetete",
+      "senha": "55",
+      "confsenha": "55"
+    },
+    {
+      "id": "2ce3",
+      "nome": "zeze",
+      "cpf": "12312312312",
+      "cargo": "faz tudo",
+      "numero": "2799999999",
+      "email": "zezeca@gmail.com",
+      "usuario": "zeca",
       "senha": "55",
       "confsenha": "55"
     }

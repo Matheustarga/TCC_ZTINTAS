@@ -53,7 +53,11 @@
   "categorias": [
     {
       "id": "1",
-      "nome": "Saúde e Beleza"
+      "nome": "CPF"
+    },
+    {
+      "id": "2",
+      "nome": "CNPJ"
     }
   ],
   "clientes": [
@@ -74,6 +78,21 @@
         "uf": "SP"
       },
       "status": "Ativo"
+    },
+    {
+      "id": "093f",
+      "nome": "Fernando De Brito Martins",
+      "email": "fernandobt481@gmail.com",
+      "categorias": "CPF",
+      "documento": "12312312312",
+      "numero": "67992764515",
+      "dataNascimento": "18052006",
+      "cep": "79013-794",
+      "logradouro": "bah",
+      "complemento": "bag",
+      "bairro": "Morada verde",
+      "cidade": "Campo Grande",
+      "uf": "ES"
     }
   ],
   "funcionarios": [

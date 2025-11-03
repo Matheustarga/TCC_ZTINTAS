@@ -27,6 +27,10 @@ const { cadastrarFuncionario } = useCadastrarFuncionario();
     // FUNÇÕES QUE LIDAM COM O SUCESSO OU ERRO DO FORMULÁRIO
   // Função pra caso dê certo na validação do formulário
   // data é o objeto com as informações dos campos do formulário
+  const linkImagem ="https://multilit.com.br/wp-content/uploads/2020/03/Produto-sem-foto.png"
+  //variavel para armazenar o link da imagem, vindo do input
+  const imagemAtual = watch("imagemUrl")
+
   const onSubmit =  (data) => {
       console.log("Dados:", data)
       if (props.page === "cadastrar") {
@@ -45,7 +49,7 @@ const { cadastrarFuncionario } = useCadastrarFuncionario();
       console.log("Erros:" , errors);
   }
   return (
-    <div className='text-center'>
+    <div className='text-center ' style={{border:" 1px solid #d3d3d3", padding:"20px", borderRadius:"15px"}}>
       <Form className="mt-3 w-full" onSubmit={handleSubmit(onSubmit,onError)}>
         <Row>
           <Col>
@@ -146,24 +150,22 @@ const { cadastrarFuncionario } = useCadastrarFuncionario();
               {errors.usuario && <p className="error">{errors.usuario.message}</p>}
             </FloatingLabel>           
         </Row>
-        <Row>
-          <Col>
-            <FloatingLabel controlId="FI-SENHA" label="Senha" className="mb-5">
-              <Form.Control
-                type="text"
-                {...register("senha", {
-                  required: "O senha é obrigatório",
-                  minLength: {
-                    value: 2,
-                    message: "O senha deve ter pelo menos dois caracteres",
-                  },
+        <Row >
+            <Col>
+              <FloatingLabel controlId="FI-SENHA" label="Senha" className="mb-5">
+                <Form.Control
+                  type="text"
+                  {...register("senha", {
+                    required: "O senha é obrigatório",
+                    minLength: {
+                      value: 2,
+                      message: "O senha deve ter pelo menos dois caracteres",
+                    },
 
-                })}
-              ></Form.Control>
-              {errors.senha && <p className="error">{errors.senha.message}</p>}
-            </FloatingLabel>            
-          </Col>
-          <Col>
+                  })}
+                ></Form.Control>
+                {errors.senha && <p className="error">{errors.senha.message}</p>}
+              </FloatingLabel>                          
             <FloatingLabel controlId="FI-CONFSENHA" label="Confirmação de Senha" className="mb-5">
               <Form.Control
                 type="text"
@@ -177,7 +179,29 @@ const { cadastrarFuncionario } = useCadastrarFuncionario();
                 })}
               ></Form.Control>
               {errors.confsenha && <p className="error">{errors.confsenha.message}</p>}
-            </FloatingLabel>           
+            </FloatingLabel>   
+    
+            {/* fim da Caixinha de imagem */}
+            </Col>
+
+          <Col>
+              <Form.Group controlId="FI-IMAGEM" className="mb-5">
+                <FloatingLabel controlId="FI-IMAGEM" label="Link da imagem" className="mb-1">
+                    <Form.Control
+                      type="url"
+                      {...register("imagemUrl",{
+                        required:"O link é obrigatório",
+                        pattern:{
+                          value:/^(http|https):\/\/[^"]+$/,
+                          message:"Insira um link válido"
+                        }})}>
+                    </Form.Control>
+                    {errors.imagemUrl && (<p className="error">{errors.imagemUrl.message}</p>)}
+                </FloatingLabel>
+                            
+              </Form.Group>            
+
+              <Image width={130} height={130} rounded src={imagemAtual == "" ? linkImagem : imagemAtual} />           
           </Col>
         </Row>
         <Row>

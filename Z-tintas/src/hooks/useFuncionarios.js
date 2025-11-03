@@ -9,7 +9,7 @@ export function useListaFuncionarios(){
     useEffect(() =>{
         async function fetchFuncionarios() {
             try{
-                const req = await fetch(`${url}/funcionarios`);
+                const req = await fetch(`${url}/usuarios`);
                 const res = await req.json();                
                 setCategorias(res);
 
@@ -25,7 +25,7 @@ export function useListaFuncionarios(){
 export function useCadastrarFuncionario() {
     const cadastrarFuncionario = async (data) => {
         console.log("To aqui")
-        const req = await fetch(`${url}/funcionarios`,{
+        const req = await fetch(`${url}/usuarios`,{
             method:"POST",
             headers:{ "Content-type": "application/json" },
             body: JSON.stringify(data)

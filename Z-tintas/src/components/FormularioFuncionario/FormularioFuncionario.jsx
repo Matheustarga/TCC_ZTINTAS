@@ -8,11 +8,26 @@ import Image from "react-bootstrap/Image";
 
 //Importando a função useForm do pacote react-hook-form
 import { useForm } from "react-hook-form";
-import { useListaFuncionarios, useCadastrarFuncionario } from "../../hooks/useFuncionarios";
+import { useListaFuncionarios, useCadastrarFuncionario, useDeletaFuncionario, useListarFuncionarios,useBuscarFuncionarioPorId,useAtualizarFuncionarios } from "../../hooks/useFuncionarios";
+
+//Navigate - transitar entre páginas, params - pegar o id fornecido na url 11/11/2025
+import { useNavigate, useParams } from "react-router-dom";
+
+//UseState - monitorar váriaveis e useEffect para realizar algo quando o componente cerregar 11/11/2025
+import { useState, useEffect } from "react";
 
 const FormularioFuncionario = (props) => {
+  // cadastrando funcionario
 const { cadastrarFuncionario } = useCadastrarFuncionario();
+//usando a função de buscar o produto e atualizar 11/11/2025
+const { buscarFuncionarioPorID } = useBuscarFuncionarioPorId
+const { atualizarFuncionario } = useAtualizarFuncionarios
 
+
+//Guardando o id do produto vindo da url 11/11/2025
+const { id } = useParams();
+//Navigate para trocar paginas 11/11/2025
+const navigate = useNavigate();
 //register = cria um objeto com os valores retirados dos inputs
   //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso
   //formState {erros} = objetoque guarda uma lista de erros que aconteceram na tentativa de envio
@@ -22,7 +37,8 @@ const { cadastrarFuncionario } = useCadastrarFuncionario();
     register,
     handleSubmit,
     formState: { errors },
-    watch
+    watch,
+    reset
   } = useForm();
     // FUNÇÕES QUE LIDAM COM O SUCESSO OU ERRO DO FORMULÁRIO
   // Função pra caso dê certo na validação do formulário
@@ -30,6 +46,45 @@ const { cadastrarFuncionario } = useCadastrarFuncionario();
   const linkImagem ="https://multilit.com.br/wp-content/uploads/2020/03/Produto-sem-foto.png"
   //variavel para armazenar o link da imagem, vindo do input
   const imagemAtual = watch("imagemUrl")
+
+// Caso o formulário seja de edição, buscar o produto id 11/11/2025
+  if(props.page ==="editar"){
+    //Variavel que controla se o produto já fi carregado 11/11/2025
+    const [carregado, setCarregado] = useState();
+    //Effect pra buscar o produto assim que o componente for montado 11/11/2025
+    useEffect(()=>{
+      async function fetchFuncionario() {
+        try{
+          //Guarda as informações do produto na variável 11/11/2025
+          const usuario = await buscarFuncionarioPorID(id)
+          console.log(usuario)
+          
+          //Se houver produto, reseta o formulario com os dados do produto
+          if(produto && !carregado){
+            reset({
+              nome: usuario.nome,
+              email: usuario.email,
+              senha: usuario.senha,
+              cargo: usuario.cargo,
+              imagemUrl: usuario.imagemUrl,
+
+            })
+            //Evita chamadas múltiplas do reset
+            setCarregado(true)
+          }
+        }
+        catch(erro){
+          console.log("Erro ao buscar o produto: ",erro);
+          alert("Produto não encontrado")
+          navigate("/home")
+        }
+      }
+      fetchFuncionario();
+    },[])
+  }
+
+
+
 
   const onSubmit =  (data) => {
       console.log("Dados:", data)

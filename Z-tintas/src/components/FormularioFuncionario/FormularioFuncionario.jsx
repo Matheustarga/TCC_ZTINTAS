@@ -20,8 +20,8 @@ const FormularioFuncionario = (props) => {
   // cadastrando funcionario
 const { cadastrarFuncionario } = useCadastrarFuncionario();
 //usando a função de buscar o produto e atualizar 11/11/2025
-const { buscarFuncionarioPorID } = useBuscarFuncionarioPorId
-const { atualizarFuncionario } = useAtualizarFuncionarios
+const { buscarFuncionarioPorID } = useBuscarFuncionarioPorId() //mudei aqui no dia 15/11/2025
+const { atualizarFuncionario } = useAtualizarFuncionarios()
 
 
 //Guardando o id do produto vindo da url 11/11/2025

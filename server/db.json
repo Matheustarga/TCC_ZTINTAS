@@ -9,14 +9,6 @@
       "imagemUrl": "https://s2-oglobo.glbimg.com/LmoAEXZ1pD441PnbzCUeFkZXHzQ=/0x0:442x592/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2025/N/F/KO00bvSTOMwQZhHQRhsg/patixa3.png"
     },
     {
-      "id": "2",
-      "nome": "Grazi",
-      "email": "Grazi@gmail.com",
-      "senha": "8",
-      "cargo": "Gerente",
-      "imagemUrl": "https://i.pinimg.com/736x/f3/3a/e6/f33ae622cfeec7c149acae05542fcfb2.jpg"
-    },
-    {
       "id": "3",
       "nome": "Eduardo",
       "email": "eduardo@gmail.com",
@@ -54,6 +46,30 @@
       "senha": "777",
       "imagemUrl": "https://i.pinimg.com/736x/38/e0/63/38e0631e3d3ada84b74f6d3b1f590da6.jpg",
       "confsenha": "777"
+    },
+    {
+      "id": "2b92",
+      "nome": "zeze",
+      "cpf": "12345678989",
+      "cargo": "faz",
+      "numero": "27898989",
+      "email": "matheus.targa@gmail.com",
+      "usuario": "zezeca",
+      "senha": "55",
+      "confsenha": "55",
+      "imagemUrl": "https://media1.thrillophilia.com/filestore/n2ib9inwzcilxpg3aumbigvq4jus_IMG_World_Dubai_Fun_38a0986c1a.jpg"
+    },
+    {
+      "id": "20d9",
+      "nome": "misaki",
+      "cpf": "15912345687",
+      "cargo": "Médica",
+      "numero": "99999999",
+      "email": "misakifofinha@gmail.com",
+      "usuario": "misaki",
+      "senha": "123456",
+      "confsenha": "123456",
+      "imagemUrl": "https://i.pinimg.com/474x/b4/45/f0/b445f03ea5ecb86aa2b4fef71ff74f4b.jpg"
     }
   ],
   "produtos": [

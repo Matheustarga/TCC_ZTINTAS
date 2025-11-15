@@ -81,7 +81,7 @@ export function useBuscarFuncionarioPorId(){
 export function useAtualizarFuncionarios(){
   //Envia os dados novos, para o produto específico
   const atualizarFuncionario = async (data, idFuncionario) => {
-    const req = await fetch(`${url}/usuario/${idFuncionario}`,{
+    const req = await fetch(`${url}/usuarios/${idFuncionario}`,{
       method:"PUT",
       headers: {"Content-type": "application/json"},
       body: JSON.stringify(data)
@@ -98,7 +98,7 @@ export function useAtualizarFuncionarios(){
 export function useDeletaFuncionario(){
   //recebe o id do produto e requisita a api a exclusão
   const deletarFuncionario = async (idFuncionario) => {
-    const req = await fetch(`${url}/usuario/${idFuncionario}`, {
+    const req = await fetch(`${url}/usuarios/${idFuncionario}`, {
       method:"DELETE"
     })
     const res = await req.json()

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Form, Button, Table, Alert } from 'react-bootstrap';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+import VerTintas from './VerTintas';
+
+
+// Cor Primária: #081F66 (Azul Escuro)
+// Cor Secundária: #fff (Branco)
+// Cor de Fundo: rgb(231, 231, 231) (Cinza Claro)
 
 const API_URL = 'http://localhost:5000/produtos';
 
-const CadastrarEstoque = () => {
-  const [produtos, setProdutos] = useState([]);
+const EditarEstoque = () => {
+  const { id } = useParams(); // Pega o ID do produto da URL
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     SKU: '',
     nome: '',
@@ -19,25 +27,35 @@ const CadastrarEstoque = () => {
     quantidade: 0,
     fornecedor: '',
     imagemUrl: '',
-    status: 'Ativo', // Adicionando o campo status para a funcionalidade de "pausar"
+    status: 'Ativo',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
   useEffect(() => {
-    fetchProdutos();
-  }, []);
+    if (id) {
+      fetchProduto(id);
+    }
+  }, [id]);
 
-  const fetchProdutos = async () => {
+  const fetchProduto = async (produtoId) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(API_URL);
-      setProdutos(response.data);
+      const response = await axios.get(`${API_URL}/${produtoId}`);
+      // Garante que os valores numéricos sejam tratados corretamente
+      const data = response.data;
+      setFormData({
+        ...data,
+        tamanho: parseFloat(data.tamanho) || 0,
+        precoCusto: parseFloat(data.precoCusto) || 0,
+        precoVenda: parseFloat(data.precoVenda) || 0,
+        quantidade: parseInt(data.quantidade) || 0,
+      });
     } catch (err) {
-      setError('Erro ao carregar produtos.');
-      console.error('Erro ao carregar produtos:', err);
+      setError('Erro ao carregar dados do produto.');
+      console.error('Erro ao carregar produto:', err);
     } finally {
       setLoading(false);
     }
@@ -57,72 +75,15 @@ const CadastrarEstoque = () => {
     setError(null);
     setSuccess(null);
 
-    // Gerar um ID simples (json-server pode gerar, mas é bom ter um fallback)
-    const newProduct = { ...formData, id: Date.now().toString() };
-
     try {
-      await axios.post(API_URL, newProduct);
-      setSuccess('Produto cadastrado com sucesso!');
-      setFormData({
-        SKU: '',
-        nome: '',
-        descricao: '',
-        categoria: '',
-        marca: '',
-        medida: '',
-        tamanho: 0,
-        precoCusto: 0,
-        precoVenda: 0,
-        quantidade: 0,
-        fornecedor: '',
-        imagemUrl: '',
-        status: 'Ativo',
-      });
-      fetchProdutos(); // Recarrega a lista
+      // Envia apenas os dados que podem ser atualizados
+      await axios.put(`${API_URL}/${id}`, formData);
+      setSuccess('Produto atualizado com sucesso!');
+      // Opcional: Redirecionar após a edição
+      // setTimeout(() => navigate('/ver-estoque'), 2000); 
     } catch (err) {
-      setError('Erro ao cadastrar produto.');
-      console.error('Erro ao cadastrar produto:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleDelete = async (id) => {
-    if (!window.confirm('Tem certeza que deseja deletar este produto?')) return;
-
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-
-    try {
-      await axios.delete(`${API_URL}/${id}`);
-      setSuccess('Produto deletado com sucesso!');
-      fetchProdutos(); // Recarrega a lista
-    } catch (err) {
-      setError('Erro ao deletar produto.');
-      console.error('Erro ao deletar produto:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleToggleStatus = async (produto) => {
-    const newStatus = produto.status === 'Ativo' ? 'Pausado' : 'Ativo';
-    const action = newStatus === 'Pausado' ? 'pausar' : 'ativar';
-
-    if (!window.confirm(`Tem certeza que deseja ${action} este produto?`)) return;
-
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-
-    try {
-      await axios.patch(`${API_URL}/${produto.id}`, { status: newStatus });
-      setSuccess(`Produto ${action} com sucesso!`);
-      fetchProdutos(); // Recarrega a lista
-    } catch (err) {
-      setError(`Erro ao ${action} produto.`);
-      console.error(`Erro ao ${action} produto:`, err);
+      setError('Erro ao atualizar produto.');
+      console.error('Erro ao atualizar produto:', err);
     } finally {
       setLoading(false);
     }
@@ -130,15 +91,17 @@ const CadastrarEstoque = () => {
 
   return (
     <Container className="my-5">
-      <h1 className="text-center mb-4">Cadastro e Gestão de Produtos</h1>
+      <h1 className="text-center mb-4" style={{ color: '#081F66' }}>
+        Editar Produto em Estoque
+      </h1>
 
       {error && <Alert variant="danger">{error}</Alert>}
       {success && <Alert variant="success">{success}</Alert>}
-      {loading && <Alert variant="info">Processando...</Alert>}
+      {loading && <Alert variant="info">Carregando...</Alert>}
 
-      {/* Formulário de Cadastro */}
-      <div className="mb-5 p-4 border rounded shadow-sm">
-        <h2>Cadastrar Novo Produto</h2>
+      {/* Formulário de Edição */}
+      <div className="p-4 border rounded shadow-sm" style={{ backgroundColor: '#fff' }}>
+        <h2>Detalhes do Produto (ID: {id})</h2>
         <Form onSubmit={handleSubmit}>
           <div className="row">
             <Form.Group className="mb-3 col-md-6" controlId="formNome">
@@ -272,75 +235,40 @@ const CadastrarEstoque = () => {
               onChange={handleChange}
             />
           </Form.Group>
+          
+          <Form.Group className="mb-3" controlId="formStatus">
+            <Form.Label>Status</Form.Label>
+            <Form.Select
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+            >
+              <option value="Ativo">Ativo</option>
+              <option value="Pausado">Pausado</option>
+              <option value="Esgotado">Esgotado</option>
+            </Form.Select>
+          </Form.Group>
 
-          <Button variant="primary" type="submit" disabled={loading}>
-            {loading ? 'Cadastrando...' : 'Cadastrar Produto'}
+          <Button 
+            variant="primary" 
+            type="submit" 
+            disabled={loading}
+            style={{ backgroundColor: '#081F66', borderColor: '#081F66' }}
+          >
+            {loading ? 'Atualizando...' : 'Salvar Alterações'}
+          </Button>
+          <Button 
+            variant="secondary" 
+            className="ms-2"
+            onClick={() => navigate('/estoque')} // Assumindo que existe uma rota para ver o estoque
+          >
+            Cancelar
           </Button>
         </Form>
-      </div>
-
-      {/* Listagem de Produtos */}
-      <div className="p-4 border rounded shadow-sm">
-        <h2>Produtos Cadastrados</h2>
-        <Table striped bordered hover responsive className="mt-3">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>SKU</th>
-              <th>Preço Venda</th>
-              <th>Qtd.</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {produtos.length > 0 ? (
-              produtos.map((produto) => (
-                <tr key={produto.id}>
-                  <td>{produto.id}</td>
-                  <td>{produto.nome}</td>
-                  <td>{produto.SKU}</td>
-                  <td>R$ {produto.precoVenda.toFixed(2)}</td>
-                  <td>{produto.quantidade}</td>
-                  <td>
-                    <span className={`badge ${produto.status === 'Ativo' ? 'bg-success' : 'bg-warning text-dark'}`}>
-                      {produto.status || 'Ativo'}
-                    </span>
-                  </td>
-                  <td>
-                    <Button
-                      variant={produto.status === 'Ativo' ? 'warning' : 'success'}
-                      size="sm"
-                      className="me-2"
-                      onClick={() => handleToggleStatus(produto)}
-                      disabled={loading}
-                    >
-                      {produto.status === 'Ativo' ? 'Pausar' : 'Ativar'}
-                    </Button>
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleDelete(produto.id)}
-                      disabled={loading}
-                    >
-                      Deletar
-                    </Button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="7" className="text-center">
-                  Nenhum produto cadastrado.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </Table>
       </div>
     </Container>
   );
 };
 
-export default CadastrarEstoque;
+export default EditarEstoque;
+

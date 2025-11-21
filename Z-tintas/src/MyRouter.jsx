@@ -13,9 +13,11 @@ import CadastrarCliente from "./pages/Cliente/CadastrarCliente"
 import EditarCliente from "./pages/Cliente/EditarCliente"
 
 // Importação Estoque
-import VerEstoque from "./pages/Estoque/VerEstoque"
+import VerTintas from "./pages/Estoque/VerTintas"
+import VerTinta from "./pages/Estoque/VerTintas"
 import CadastrarEstoque from "./pages/Estoque/CadastrarEstoque"
-import EditarEstoque from "./pages/Estoque/EditarEstoque"
+import EditarTinta from "./pages/Estoque/EditarTinta"
+
 
 // Importação Funcionario
 
@@ -84,12 +86,16 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "consultar",
-                        element: <VerEstoque />
+                        element: <EditarTinta />
+                    },
+                    {
+                        path: "tintas",
+                        element: <VerTintas />
                     },
                     {
                         path: "editar/:id",
-                        element: <EditarEstoque />
-                    }
+                        element: <EditarTinta />
+                    }                
                 ]
             },
             // Criando rota de Funcionario

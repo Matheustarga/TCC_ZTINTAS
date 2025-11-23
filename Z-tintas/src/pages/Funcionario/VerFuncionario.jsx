@@ -42,7 +42,7 @@ const funcionariosFiltrados = funcionarios.filter((func)=>{
   return (
     
     <div>
-        <h1 className="text-center"> Ver Clientes </h1>
+        <h1 className="text-center"> Ver Funcionários </h1>
               {/* INICIO FILTRO */}
       <div className="w-75 mx-auto d-flex justify-content-center gap-2 flex-wrap">
         {/* Caixinha */}

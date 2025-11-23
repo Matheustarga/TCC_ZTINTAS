@@ -35,6 +35,18 @@
       "senha": "123456",
       "confsenha": "123456",
       "imagemUrl": "https://i.pinimg.com/474x/b4/45/f0/b445f03ea5ecb86aa2b4fef71ff74f4b.jpg"
+    },
+    {
+      "id": "455d",
+      "nome": "roger ",
+      "cpf": "44444444444444",
+      "cargo": "gerente",
+      "numero": "67992764515",
+      "email": "matheus@gmail.com",
+      "usuario": "fernandobt481@gmail.com",
+      "senha": "555",
+      "confsenha": "555",
+      "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg13TKTPX-PzFYnXcXLJCmpbKY9NPs57I1zA&s"
     }
   ],
   "produtos": [
@@ -52,6 +64,22 @@
       "quantidade": 7,
       "fornecedor": "Ambev",
       "imagemUrl": "https://www.arenaatacado.com.br/on/demandware.static/-/Sites-storefront-catalog-sv/default/dw81b33c52/Produtos/501522-7891150019416-shampoo%20anticaspa%20clear%20men%20sports%20cristiano%20ronaldo%20limpeza%20profunda%20400ml-clear-5.jpg"
+    },
+    {
+      "id": "1763775465082",
+      "SKU": "2",
+      "nome": "roger ",
+      "descricao": "yop",
+      "categoria": "bah",
+      "marca": "bahg",
+      "medida": "ml",
+      "tamanho": 7,
+      "precoCusto": 1.1,
+      "precoVenda": 0.23,
+      "quantidade": 4,
+      "fornecedor": "ahgag",
+      "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg13TKTPX-PzFYnXcXLJCmpbKY9NPs57I1zA&s",
+      "status": "Ativo"
     }
   ],
   "categorias": [
@@ -89,6 +117,36 @@
       "email": "fernandobt481@gmail.com",
       "categorias": "CPF",
       "documento": "12312312312",
+      "numero": "67992764515",
+      "dataNascimento": "18052006",
+      "cep": "79013-794",
+      "logradouro": "bah",
+      "complemento": "bag",
+      "bairro": "Morada verde",
+      "cidade": "Campo Grande",
+      "uf": "ES"
+    },
+    {
+      "id": "7e82",
+      "nome": "MARIA LUIZA DE BRITO MARTINS",
+      "email": "matheus@gmail.com",
+      "categorias": "CPF",
+      "documento": "123123123123",
+      "numero": "67992764515",
+      "dataNascimento": "18052006",
+      "cep": "79013-794",
+      "logradouro": "bah",
+      "complemento": "bag",
+      "bairro": "Morada verde",
+      "cidade": "Campo Grande",
+      "uf": "ES"
+    },
+    {
+      "id": "8c57",
+      "nome": "MARIA LUIZA DE BRITO MARTINS",
+      "email": "matheus@gmail.com",
+      "categorias": "CPF",
+      "documento": "123123123123",
       "numero": "67992764515",
       "dataNascimento": "18052006",
       "cep": "79013-794",

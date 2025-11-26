@@ -1,6 +1,5 @@
 import React from "react";
 import FormularioCliente from "../../components/FormularioCliente/FormularioCliente.jsx";
-
 import { Container } from "react-bootstrap";
 
 const CadastrarCliente = () => {

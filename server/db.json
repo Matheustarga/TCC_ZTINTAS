@@ -35,18 +35,6 @@
       "senha": "123456",
       "confsenha": "123456",
       "imagemUrl": "https://i.pinimg.com/474x/b4/45/f0/b445f03ea5ecb86aa2b4fef71ff74f4b.jpg"
-    },
-    {
-      "id": "455d",
-      "nome": "roger ",
-      "cpf": "44444444444444",
-      "cargo": "gerente",
-      "numero": "67992764515",
-      "email": "matheus@gmail.com",
-      "usuario": "fernandobt481@gmail.com",
-      "senha": "555",
-      "confsenha": "555",
-      "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg13TKTPX-PzFYnXcXLJCmpbKY9NPs57I1zA&s"
     }
   ],
   "produtos": [
@@ -94,41 +82,7 @@
   ],
   "clientes": [
     {
-      "id": "1",
-      "nome": "Maria das Graças",
-      "email": "maria@gmail.com",
-      "documento": "12345678910",
-      "tipo": "PF",
-      "telefone": "27970707070",
-      "dataNascimento": "2007-07-07",
-      "endereco": {
-        "cep": "29999666",
-        "logradouro": "Rua dos Alfeneiros",
-        "complemento": "Número 4",
-        "bairro": "Terra do nunca",
-        "cidade": "Ilha da bruxaria",
-        "uf": "SP"
-      },
-      "status": "Ativo"
-    },
-    {
-      "id": "093f",
-      "nome": "Fernando De Brito Martins",
-      "email": "fernandobt481@gmail.com",
-      "categorias": "CPF",
-      "documento": "12312312312",
-      "numero": "67992764515",
-      "dataNascimento": "18052006",
-      "cep": "79013-794",
-      "logradouro": "bah",
-      "complemento": "bag",
-      "bairro": "Morada verde",
-      "cidade": "Campo Grande",
-      "uf": "ES"
-    },
-    {
-      "id": "7e82",
-      "nome": "MARIA LUIZA DE BRITO MARTINS",
+      "nome": "viado",
       "email": "matheus@gmail.com",
       "categorias": "CPF",
       "documento": "123123123123",
@@ -139,19 +93,20 @@
       "complemento": "bag",
       "bairro": "Morada verde",
       "cidade": "Campo Grande",
-      "uf": "ES"
+      "uf": "ES",
+      "id": "7e82"
     },
     {
-      "id": "8c57",
+      "id": "6c5e",
       "nome": "MARIA LUIZA DE BRITO MARTINS",
-      "email": "matheus@gmail.com",
-      "categorias": "CPF",
-      "documento": "123123123123",
+      "email": "goku@gmail.com",
+      "categorias": "CNPJ",
+      "documento": "555415855728",
       "numero": "67992764515",
       "dataNascimento": "18052006",
       "cep": "79013-794",
-      "logradouro": "bah",
-      "complemento": "bag",
+      "logradouro": "rua da lama",
+      "complemento": "malloca",
       "bairro": "Morada verde",
       "cidade": "Campo Grande",
       "uf": "ES"

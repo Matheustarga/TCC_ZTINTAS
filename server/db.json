@@ -35,6 +35,42 @@
       "senha": "123456",
       "confsenha": "123456",
       "imagemUrl": "https://i.pinimg.com/474x/b4/45/f0/b445f03ea5ecb86aa2b4fef71ff74f4b.jpg"
+    },
+    {
+      "id": "1",
+      "cargo": "Gerente",
+      "confsenha": "5",
+      "cpf": "12345678989",
+      "email": "matheus@gmail.com",
+      "nome": "Matheus funcionario",
+      "numero": "996644414",
+      "senha": "5",
+      "usuario": "matheustarga",
+      "imagemUrl": ""
+    },
+    {
+      "id": "254f",
+      "nome": "aaaaa",
+      "cpf": "12345678989",
+      "cargo": "gerente",
+      "numero": "1254564",
+      "email": "matheussss@gmail.com",
+      "usuario": "the thteteutetete",
+      "senha": "55",
+      "confsenha": "55",
+      "imagemUrl": ""
+    },
+    {
+      "id": "2ce3",
+      "nome": "zeze",
+      "cpf": "12312312312",
+      "cargo": "faz tudo",
+      "numero": "2799999999",
+      "email": "zezeca@gmail.com",
+      "usuario": "zeca",
+      "senha": "55",
+      "confsenha": "55",
+      "imagemUrl": ""
     }
   ],
   "produtos": [
@@ -52,22 +88,6 @@
       "quantidade": 7,
       "fornecedor": "Ambev",
       "imagemUrl": "https://www.arenaatacado.com.br/on/demandware.static/-/Sites-storefront-catalog-sv/default/dw81b33c52/Produtos/501522-7891150019416-shampoo%20anticaspa%20clear%20men%20sports%20cristiano%20ronaldo%20limpeza%20profunda%20400ml-clear-5.jpg"
-    },
-    {
-      "id": "1763775465082",
-      "SKU": "2",
-      "nome": "roger ",
-      "descricao": "yop",
-      "categoria": "bah",
-      "marca": "bahg",
-      "medida": "ml",
-      "tamanho": 7,
-      "precoCusto": 1.1,
-      "precoVenda": 0.23,
-      "quantidade": 4,
-      "fornecedor": "ahgag",
-      "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg13TKTPX-PzFYnXcXLJCmpbKY9NPs57I1zA&s",
-      "status": "Ativo"
     }
   ],
   "categorias": [
@@ -82,10 +102,29 @@
   ],
   "clientes": [
     {
-      "nome": "viado",
-      "email": "matheus@gmail.com",
+      "id": "1",
+      "nome": "Maria das Graças",
+      "email": "maria@gmail.com",
+      "documento": "12345678910",
+      "tipo": "PF",
+      "telefone": "27970707070",
+      "dataNascimento": "2007-07-07",
+      "endereco": {
+        "cep": "29999666",
+        "logradouro": "Rua dos Alfeneiros",
+        "complemento": "Número 4",
+        "bairro": "Terra do nunca",
+        "cidade": "Ilha da bruxaria",
+        "uf": "SP"
+      },
+      "status": "Ativo"
+    },
+    {
+      "id": "093f",
+      "nome": "Fernando De Brito Martins",
+      "email": "fernandobt481@gmail.com",
       "categorias": "CPF",
-      "documento": "123123123123",
+      "documento": "12312312312",
       "numero": "67992764515",
       "dataNascimento": "18052006",
       "cep": "79013-794",
@@ -93,58 +132,7 @@
       "complemento": "bag",
       "bairro": "Morada verde",
       "cidade": "Campo Grande",
-      "uf": "ES",
-      "id": "7e82"
-    },
-    {
-      "id": "6c5e",
-      "nome": "MARIA LUIZA DE BRITO MARTINS",
-      "email": "goku@gmail.com",
-      "categorias": "CNPJ",
-      "documento": "555415855728",
-      "numero": "67992764515",
-      "dataNascimento": "18052006",
-      "cep": "79013-794",
-      "logradouro": "rua da lama",
-      "complemento": "malloca",
-      "bairro": "Morada verde",
-      "cidade": "Campo Grande",
       "uf": "ES"
-    }
-  ],
-  "funcionarios": [
-    {
-      "id": "1",
-      "cargo": "Gerente",
-      "confsenha": "5",
-      "cpf": "12345678989",
-      "email": "matheus@gmail.com",
-      "nome": "Matheus funcionario",
-      "numero": "996644414",
-      "senha": "5",
-      "usuario": "matheustarga"
-    },
-    {
-      "id": "254f",
-      "nome": "aaaaa",
-      "cpf": "12345678989",
-      "cargo": "gerente",
-      "numero": "1254564",
-      "email": "matheussss@gmail.com",
-      "usuario": "the thteteutetete",
-      "senha": "55",
-      "confsenha": "55"
-    },
-    {
-      "id": "2ce3",
-      "nome": "zeze",
-      "cpf": "12312312312",
-      "cargo": "faz tudo",
-      "numero": "2799999999",
-      "email": "zezeca@gmail.com",
-      "usuario": "zeca",
-      "senha": "55",
-      "confsenha": "55"
     }
   ]
 }

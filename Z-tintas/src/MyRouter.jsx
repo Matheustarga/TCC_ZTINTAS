@@ -25,6 +25,9 @@ import VerFuncionario from "./pages/Funcionario/VerFuncionario"
 import CadastrarFuncionario from "./pages/Funcionario/CadastrarFuncionario"
 import EditarFuncionario from "./pages/Funcionario/EditarFuncionario"
 
+// Importação Movimentações de Estoque
+import Movimentacoes from "./pages/Movimentacoes/Movimentacoes"
+
 
 
 
@@ -117,6 +120,12 @@ const router = createBrowserRouter([
                 ]
             }
             
+            ,
+            // Rota de Movimentações de Estoque
+            {
+                path: "movimentacoes",
+                element: <Movimentacoes />
+            }
 
         ]
     }

@@ -100,6 +100,15 @@ const BarraNavegacao = () => {
                   <TbListSearch className="fs-4 mb-2"/>
                   <span className="ms-2 fs-5 fs-5"> Consultar  </span>
                 </Nav.Link>
+                {/* Opção 3 */}
+                <Nav.Link
+                  as={NavLink}
+                  to="/movimentacoes"
+                  className="text-white ps-4"
+                >
+                  <TbListSearch className="fs-4 mb-2"/>
+                  <span className="ms-2 fs-5 fs-5"> Movimentações </span>
+                </Nav.Link>
               </Nav>
             </Accordion.Body>
           </Accordion.Item>

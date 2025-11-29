@@ -1,10 +1,5 @@
 import { useState } from 'react'
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import { Container, Table, Button, Form, Dropdown, DropdownButton, Row, Col, Card } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
@@ -39,96 +34,138 @@ const funcionariosFiltrados = funcionarios.filter((func)=>{
    return nomeCorresponde &&  tipoCorresponde
 })
 
+  
   return (
-    
-    <div>
-        <h1 className="text-center"> Ver Funcionários </h1>
-              {/* INICIO FILTRO */}
-      <div className="w-75 mx-auto d-flex justify-content-center gap-2 flex-wrap">
-        {/* Caixinha */}
-          <InputGroup className="mb-3" style={{maxWidth:"400px"}}>
-            <Form.Control
-              placeholder="Procurar um Funcionario"
-              value={buscaNome}
-              onChange={ (e) => setBuscaNome(e.target.value)}
-            >
+    <Container className="mt-4">
+      <h2 className="mb-4">Visualizar Funcionários Cadastrados</h2>
 
-            </Form.Control>
-            <Button variant="primary" id="botao-filtrar">
-                <BsSearch /> Pesquisar
-            </Button>
-          </InputGroup>
-        {/* Select */}
-          <DropdownButton id="dropdown-categoria" title={buscaTipo || "Todas as categorias"} variant="secondary" className="mb-3">
-            <Dropdown.Item onClick={()=> setBuscaTipo("")}>Todas</Dropdown.Item>
-            <Dropdown.Item onClick={()=> setBuscaTipo("PF")}>PF</Dropdown.Item>
-            <Dropdown.Item onClick={()=> setBuscaTipo("PJ")}>PJ</Dropdown.Item>
-          </DropdownButton>
-      </div>
+      {/* Filtro e ações */}
+      <Card className="mb-4 shadow-sm">
+        <Card.Body>
+          <Row className="align-items-center">
+            <Col md={6}>
+              <Form.Group controlId="formBuscaFuncionario">
+                <div className="input-group">
+                  <span className="input-group-text bg-custom-blue text-white">
+                    <BsSearch />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    placeholder="Buscar por nome..."
+                    value={buscaNome}
+                    onChange={(e) => setBuscaNome(e.target.value)}
+                  />
+                </div>
+              </Form.Group>
+            </Col>
 
-      {/* FIM FILTRO */}
-      {/* INICIO TABELA */}
-        <Table striped bordered hover>
-          {/* cABEÇALHO DA TABELA */}
-          <thead>
+            <Col md={3} className="mt-3 mt-md-0">
+              <Form.Group controlId="formTipoFuncionario">
+                <DropdownButton
+                  id="dropdown-tipo-funcionario"
+                  title={buscaTipo || "Filtrar por tipo"}
+                  variant="outline-secondary"
+                  className="w-100"
+                >
+                  <Dropdown.Item onClick={() => setBuscaTipo("")}>
+                    Todas
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setBuscaTipo("Gerente")}>
+                    Gerente
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => setBuscaTipo("Atendente")}>
+                    Atendente
+                  </Dropdown.Item>
+                </DropdownButton>
+              </Form.Group>
+            </Col>
+
+            <Col md={3} className="text-md-end mt-3 mt-md-0">
+              <Link to="/funcionario/cadastrar">
+                <Button className="bg-custom-blue border-0">
+                  Cadastrar Funcionário
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
+
+      {/* Tabela de funcionários */}
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome Completo</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Cargo</th>
+            <th>Telefone</th>
+            <th>Usuário</th>
+            <th>Imagem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {funcionarios.length > 0 ? (
+            funcionariosFiltrados.map((func) => (
+              <tr key={func.id}>
+                <td>{func.id}</td>
+                <td>{func.nome}</td>
+                <td>{func.email}</td>
+                <td>{func.cpf}</td>
+                <td>{func.cargo}</td>
+                <td>{func.numero}</td>
+                <td>{func.usuario}</td>
+                <td>
+                  {func.imagemUrl && (
+                    <img
+                      src={func.imagemUrl}
+                      alt={`Foto de ${func.nome}`}
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        objectFit: "cover",
+                        borderRadius: "4px",
+                      }}
+                    />
+                  )}
+                </td>
+                <td>
+                  <Button
+                    as={Link}
+                    to={`/funcionario/editar/${func.id}`}
+                    size="sm"
+                    variant="outline-primary"
+                    className="me-2"
+                  >
+                    Editar
+                  </Button>
+
+                  <Button
+                    size="sm"
+                    variant="outline-danger"
+                    className="ms-2"
+                    onClick={() => {
+                      handleDelete(func.id, func.nome);
+                    }}
+                  >
+                    Excluir
+                  </Button>
+                </td>
+              </tr>
+            ))
+          ) : (
             <tr>
-              <th>Id</th>
-              <th>Nome Completo</th>
-              <th>Email</th>
-              <th>CPF</th>
-              <th>Cargo</th>
-              <th>Telefone</th>
-              <th>Usuario</th>
-              <th>Imagem</th>
-              <th></th>
+              <td colSpan={9} className="text-center">
+                Nenhum cliente encontrado
+              </td>
             </tr>
-          </thead>
-          {/* CORPO DA TABELA */}
-          <tbody>
-            {
-              funcionarios.length > 0 ?
-              (
-                funcionarios.map( (func) => (
-                  <tr key={func.id}>
-                    <td>{func.id}</td>
-                    <td>{func.nome}</td>
-                    <td>{func.email}</td>
-                    <td>{func.cpf}</td>
-                    <td>{func.cargo}</td>
-                    <td>{func.numero}</td>
-                    <td>{func.usuario}</td>
-                    <td>{func.imagemUrl &&     <img
-      src={func.imagemUrl}
-      alt={`Foto de ${func.nome}`}
-      style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "4px" }}
-    />}</td>
-                    <td>
-                      {/* Editar */}
-                      <Button as={Link} to={`/funcionario/editar/${func.id }`} size="sm" variant="warning" className="mx-2">
-                        Editar
-                      </Button>
-
-                      <Button size="sm" variant="danger" className="mx-2" onClick={ () => {handleDelete(func.id, func.nome)}}>
-                        Excluir
-                      </Button>
-                    </td>
-                  </tr>
-                ))
-              )
-              :
-              //Caso não haja clientes na lista
-              (
-                <tr>
-                  <td colSpan={9} className="text-center">Nenhum cliente encontrado</td>
-                </tr>
-              )
-            }
-          </tbody>
-        </Table>
-      {/* FIM TABELA */}
-
-    </div>
-  )
+          )}
+        </tbody>
+      </Table>
+    </Container>
+  );
 }
 
 export default VerFuncionario

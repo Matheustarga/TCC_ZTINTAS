@@ -2,8 +2,6 @@
 CREATE DATABASE IF NOT EXISTS ztintas CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE ztintas;
 
-DROP TABLE IF EXISTS movimentacoes;
-
 DROP TABLE IF EXISTS usuarios;
 DROP TABLE IF EXISTS produtos;
 DROP TABLE IF EXISTS categorias;
@@ -61,18 +59,6 @@ CREATE TABLE clientes (
   cidade VARCHAR(255),
   uf VARCHAR(10),
   numero VARCHAR(50)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE movimentacoes (
-  id VARCHAR(50) PRIMARY KEY,
-  produtoId VARCHAR(50) NOT NULL,
-  tipo ENUM('entrada','saida') NOT NULL,
-  quantidade INT NOT NULL,
-  motivo VARCHAR(255),
-  dataMovimentacao DATETIME DEFAULT CURRENT_TIMESTAMP,
-  usuarioId VARCHAR(50) NOT NULL,
-  FOREIGN KEY (produtoId) REFERENCES produtos(id),
-  FOREIGN KEY (usuarioId) REFERENCES usuarios(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- POPULAÇÃO INICIAL

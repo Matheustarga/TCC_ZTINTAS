@@ -1,15 +1,14 @@
-import React from "react";
-import { Container, Card } from "react-bootstrap";
 import FormularioFuncionario from "../../components/FormularioFuncionario/FormularioFuncionario";
+import { Container } from "react-bootstrap";
 
 const EditarFuncionario = () => {
   return (
-    <Container className="my-5">
-      <h1 className="text-center mb-4">Editar Funcionários</h1>
-      <Card className="p-4 shadow-sm">
+    <div>
+      <Container>
+        <h1 className="text-center">Editar Funcionarios</h1>
         <FormularioFuncionario page="editar" />
-      </Card>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

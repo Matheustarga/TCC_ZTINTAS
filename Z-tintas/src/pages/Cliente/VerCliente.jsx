@@ -1,6 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-import { Container, Table, Button, Form, Dropdown, DropdownButton, Row, Col, Card } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import { BsSearch } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
@@ -33,65 +38,40 @@ const VerCliente = () => {
     return nomeCorresponde && tipoCorresponde;
   });
 
-  
   return (
-    <Container className="mt-4">
-      <h2 className="mb-4">Visualizar Clientes Cadastrados</h2>
+    <div>
+      <h1 className="text-center"> Ver Cliente </h1>
 
-      {/* Filtro e ações */}
-      <Card className="mb-4 shadow-sm">
-        <Card.Body>
-          <Row className="align-items-center">
-            <Col md={6}>
-              <Form.Group controlId="formBuscaCliente">
-                <div className="input-group">
-                  <span className="input-group-text bg-custom-blue text-white">
-                    <BsSearch />
-                  </span>
-                  <Form.Control
-                    type="text"
-                    placeholder="Buscar por nome..."
-                    value={buscaNome}
-                    onChange={(e) => setBuscaNome(e.target.value)}
-                  />
-                </div>
-              </Form.Group>
-            </Col>
+      {/* FILTRO */}
+      <div className="w-75 mx-auto d-flex justify-content-center gap-2 flex-wrap">
 
-            <Col md={3} className="mt-3 mt-md-0">
-              <Form.Group controlId="formTipoCliente">
-                <DropdownButton
-                  id="dropdown-tipo-cliente"
-                  title={buscaTipo || "Filtrar por tipo"}
-                  variant="outline-secondary"
-                  className="w-100"
-                >
-                  <Dropdown.Item onClick={() => setBuscaTipo("")}>
-                    Todas
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => setBuscaTipo("PF")}>
-                    PF
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => setBuscaTipo("PJ")}>
-                    PJ
-                  </Dropdown.Item>
-                </DropdownButton>
-              </Form.Group>
-            </Col>
+        {/* Caixinha pesquisa */}
+        <InputGroup className="mb-3" style={{ maxWidth: "400px" }}>
+          <Form.Control
+            placeholder="Procurar um Cliente"
+            value={buscaNome}
+            onChange={(e) => setBuscaNome(e.target.value)}
+          />
+          <Button variant="primary" id="botao-filtrar">
+            <BsSearch /> Pesquisar
+          </Button>
+        </InputGroup>
 
-            <Col md={3} className="text-md-end mt-3 mt-md-0">
-              <Link to="/cliente/cadastrar">
-                <Button className="bg-custom-blue border-0">
-                  Cadastrar Cliente
-                </Button>
-              </Link>
-            </Col>
-          </Row>
-        </Card.Body>
-      </Card>
+        {/* Dropdown */}
+        <DropdownButton
+          id="dropdown-categoria"
+          title={buscaTipo || "Todas as categorias"}
+          variant="secondary"
+          className="mb-3"
+        >
+          <Dropdown.Item onClick={() => setBuscaTipo("")}>Todas</Dropdown.Item>
+          <Dropdown.Item onClick={() => setBuscaTipo("PF")}>PF</Dropdown.Item>
+          <Dropdown.Item onClick={() => setBuscaTipo("PJ")}>PJ</Dropdown.Item>
+        </DropdownButton>
+      </div>
 
-      {/* Tabela de clientes */}
-      <Table striped bordered hover responsive>
+      {/* TABELA */}
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Id</th>
@@ -113,7 +93,7 @@ const VerCliente = () => {
 
         <tbody>
           {cliente.length > 0 ? (
-            clientesFiltrados.map((clien) => (
+            cliente.map((clien) => (
               <tr key={clien.id}>
                 <td>{clien.id}</td>
                 <td>{clien.nome}</td>
@@ -128,19 +108,21 @@ const VerCliente = () => {
                 <td>{clien.bairro}</td>
                 <td>{clien.cidade}</td>
                 <td>{clien.uf}</td>
+
                 <td>
                   <div style={{ display: "flex", gap: "8px" }}>
                     <Button
                       as={Link}
                       to={`/cliente/editar/${clien.id}`}
                       size="sm"
-                      variant="outline-primary"
+                      variant="warning"
                     >
                       Editar
                     </Button>
+
                     <Button
                       size="sm"
-                      variant="outline-danger"
+                      variant="danger"
                       onClick={() => handleDelete(clien.id, clien.nome)}
                     >
                       Excluir
@@ -158,7 +140,7 @@ const VerCliente = () => {
           )}
         </tbody>
       </Table>
-    </Container>
+    </div>
   );
 };
 

@@ -1,134 +1,154 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { BsSearch } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import { BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-import{ useListarFuncionarios, useDeletaFuncionario } from "../../hooks/useFuncionarios"
+import { useListarFuncionarios, useDeletaFuncionario } from "../../hooks/useFuncionarios";
 
 const VerFuncionario = () => {
-//varaivel para armazenar a lista de funcionarios
- const funcionarios = useListarFuncionarios();
+  // variável para armazenar a lista de funcionários
+  const funcionarios = useListarFuncionarios();
 
- const {deletarFuncionario} = useDeletaFuncionario();
+  const { deletarFuncionario } = useDeletaFuncionario();
 
- const handleDelete = async (idFuncionario, nome)=>{
-  if(confirm(`Deseja realmente excluir o funcionario ${nome}?`)){
-    const deletado = await deletarFuncionario(idFuncionario)
-    alert(`Cliente ${nome} deletado com sucesso!`)
-    window.location.reload()
-  }
- }
+  const handleDelete = async (id, nome) => {
+    if (confirm(`Deseja realmente excluir o funcionário ${nome}?`)) {
+      const deletado = await deletarFuncionario(id);
+      if (deletado) {
+        alert(`Funcionário ${nome} deletado com sucesso!`);
+        window.location.reload();
+      }
+    }
+  };
 
- //parte de filtros
+  // parte de filtros
+  const [buscaNome, setBuscaNome] = useState("");
+  const [buscaTipo, setBuscaTipo] = useState("");
 
- //Variaveis para os filtros
-const [buscaNome,setBuscaNome] = useState("")
-const [buscaTipo, setBuscaTipo] = useState("")
+  const funcionariosFiltrados = funcionarios.filter((func) => {
+    const nomeCorresponde = func.nome
+      .toLowerCase()
+      .includes(buscaNome.toLowerCase());
 
-const funcionariosFiltrados = funcionarios.filter((func)=>{
-  //verificando se o está na caixinha tem semelhança
-  const nomeCorresponde = func.nome.toLowerCase().includes(buscaNome.toLowerCase())
+    const tipoCorresponde = buscaTipo
+      ? func.tipo?.toLowerCase() === buscaTipo.toLowerCase()
+      : true;
 
-  const tipoCorresponde = buscaTipo
-  ? func.tipo?.toLowerCase() === buscaTipo.toLowerCase(): true //---------------------------------------------
-   return nomeCorresponde &&  tipoCorresponde
-})
+    return nomeCorresponde && tipoCorresponde;
+  });
 
   return (
-    
-    <div>
-        <h1 className="text-center"> Ver Funcionários </h1>
-              {/* INICIO FILTRO */}
-      <div className="w-75 mx-auto d-flex justify-content-center gap-2 flex-wrap">
-        {/* Caixinha */}
-          <InputGroup className="mb-3" style={{maxWidth:"400px"}}>
-            <Form.Control
-              placeholder="Procurar um Funcionario"
-              value={buscaNome}
-              onChange={ (e) => setBuscaNome(e.target.value)}
-            >
+    <Container className="mt-4">
+      <h2 className="mb-4">Visualizar Funcionários</h2>
 
-            </Form.Control>
-            <Button variant="primary" id="botao-filtrar">
-                <BsSearch /> Pesquisar
-            </Button>
-          </InputGroup>
-        {/* Select */}
-          <DropdownButton id="dropdown-categoria" title={buscaTipo || "Todas as categorias"} variant="secondary" className="mb-3">
-            <Dropdown.Item onClick={()=> setBuscaTipo("")}>Todas</Dropdown.Item>
-            <Dropdown.Item onClick={()=> setBuscaTipo("PF")}>PF</Dropdown.Item>
-            <Dropdown.Item onClick={()=> setBuscaTipo("PJ")}>PJ</Dropdown.Item>
-          </DropdownButton>
-      </div>
+      <Card className="mb-4 shadow-sm">
+        <Card.Body>
+          <Row className="align-items-center">
+            <Col md={8}>
+              <InputGroup className="mb-3">
+                <InputGroup.Text className="bg-custom-blue text-white">
+                  <BsSearch />
+                </InputGroup.Text>
+                <Form.Control
+                  placeholder="Procurar um Funcionário"
+                  value={buscaNome}
+                  onChange={(e) => setBuscaNome(e.target.value)}
+                />
+              </InputGroup>
+            </Col>
+            <Col md={4} className="text-end">
+              <DropdownButton
+                id="dropdown-categoria-func"
+                title={buscaTipo || "Todas as categorias"}
+                variant="secondary"
+                className="me-2 mb-2"
+              >
+                <Dropdown.Item onClick={() => setBuscaTipo("")}>
+                  Todas
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setBuscaTipo("PF")}>
+                  PF
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setBuscaTipo("PJ")}>
+                  PJ
+                </Dropdown.Item>
+              </DropdownButton>
 
-      {/* FIM FILTRO */}
-      {/* INICIO TABELA */}
-        <Table striped bordered hover>
-          {/* cABEÇALHO DA TABELA */}
-          <thead>
+              <Link to="/funcionario/cadastrar">
+                <Button variant="success" className="mb-2">
+                  Cadastrar novo funcionário
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
+
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome Completo</th>
+            <th>Email</th>
+            <th>Categoria</th>
+            <th>CPF/CNPJ</th>
+            <th>Telefone</th>
+            <th>Cargo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {funcionariosFiltrados.length > 0 ? (
+            funcionariosFiltrados.map((func) => (
+              <tr key={func.id}>
+                <td>{func.id}</td>
+                <td>{func.nome}</td>
+                <td>{func.email}</td>
+                <td>{func.tipo}</td>
+                <td>{func.cpf_cnpj}</td>
+                <td>{func.telefone}</td>
+                <td>{func.cargo}</td>
+                <td>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <Button
+                      as={Link}
+                      to={`/funcionario/editar/${func.id}`}
+                      size="sm"
+                      variant="warning"
+                    >
+                      Editar
+                    </Button>
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => handleDelete(func.id, func.nome)}
+                    >
+                      Excluir
+                    </Button>
+                  </div>
+                </td>
+              </tr>
+            ))
+          ) : (
             <tr>
-              <th>Id</th>
-              <th>Nome Completo</th>
-              <th>Email</th>
-              <th>CPF</th>
-              <th>Cargo</th>
-              <th>Telefone</th>
-              <th>Usuario</th>
-              <th>Imagem</th>
-              <th></th>
+              <td colSpan={8} className="text-center">
+                Nenhum cliente encontrado
+              </td>
             </tr>
-          </thead>
-          {/* CORPO DA TABELA */}
-          <tbody>
-            {
-              funcionarios.length > 0 ?
-              (
-                funcionarios.map( (func) => (
-                  <tr key={func.id}>
-                    <td>{func.id}</td>
-                    <td>{func.nome}</td>
-                    <td>{func.email}</td>
-                    <td>{func.cpf}</td>
-                    <td>{func.cargo}</td>
-                    <td>{func.numero}</td>
-                    <td>{func.usuario}</td>
-                    <td>{func.imagemUrl &&     <img
-      src={func.imagemUrl}
-      alt={`Foto de ${func.nome}`}
-      style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "4px" }}
-    />}</td>
-                    <td>
-                      {/* Editar */}
-                      <Button as={Link} to={`/funcionario/editar/${func.id }`} size="sm" variant="warning" className="mx-2">
-                        Editar
-                      </Button>
+          )}
+        </tbody>
+      </Table>
+    </Container>
+  );
+};
 
-                      <Button size="sm" variant="danger" className="mx-2" onClick={ () => {handleDelete(func.id, func.nome)}}>
-                        Excluir
-                      </Button>
-                    </td>
-                  </tr>
-                ))
-              )
-              :
-              //Caso não haja clientes na lista
-              (
-                <tr>
-                  <td colSpan={9} className="text-center">Nenhum cliente encontrado</td>
-                </tr>
-              )
-            }
-          </tbody>
-        </Table>
-      {/* FIM TABELA */}
-
-    </div>
-  )
-}
-
-export default VerFuncionario
+export default VerFuncionario;

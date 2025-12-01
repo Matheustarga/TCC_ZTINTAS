@@ -1,24 +1,27 @@
-import React from 'react'
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { BsSearch } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import { BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-import { useListarClientes, useDeletaClientes } from "../../hooks/useClientes"
+import { useListarClientes, useDeletaClientes } from "../../hooks/useClientes";
 
 const VerCliente = () => {
-
   const cliente = useListarClientes();
-  const { deletarCliente } = useDeletaClientes(); // <-- CORRIGIDO
+  const { deletarCliente } = useDeletaClientes(); // <-- mantém lógica original
 
   const handleDelete = async (idCliente, nome) => {
     if (confirm(`Deseja realmente excluir o cliente ${nome}?`)) {
-      const deletado = await deletarCliente(idCliente); // <-- CORRIGIDO
+      const deletado = await deletarCliente(idCliente);
       alert(`Cliente ${nome} deletado com sucesso!`);
       window.location.reload();
     }
@@ -39,39 +42,53 @@ const VerCliente = () => {
   });
 
   return (
-    <div>
-      <h1 className="text-center"> Ver Cliente </h1>
+    <Container className="mt-4">
+      <h2 className="mb-4">Visualizar Clientes</h2>
 
-      {/* FILTRO */}
-      <div className="w-75 mx-auto d-flex justify-content-center gap-2 flex-wrap">
+      <Card className="mb-4 shadow-sm">
+        <Card.Body>
+          <Row className="align-items-center">
+            <Col md={8}>
+              <InputGroup className="mb-3">
+                <InputGroup.Text className="bg-custom-blue text-white">
+                  <BsSearch />
+                </InputGroup.Text>
+                <Form.Control
+                  placeholder="Procurar um Cliente"
+                  value={buscaNome}
+                  onChange={(e) => setBuscaNome(e.target.value)}
+                />
+              </InputGroup>
+            </Col>
+            <Col md={4} className="text-end">
+              <DropdownButton
+                id="dropdown-categoria-cliente"
+                title={buscaTipo || "Todas as categorias"}
+                variant="secondary"
+                className="me-2 mb-2"
+              >
+                <Dropdown.Item onClick={() => setBuscaTipo("")}>
+                  Todas
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setBuscaTipo("PF")}>
+                  PF
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setBuscaTipo("PJ")}>
+                  PJ
+                </Dropdown.Item>
+              </DropdownButton>
 
-        {/* Caixinha pesquisa */}
-        <InputGroup className="mb-3" style={{ maxWidth: "400px" }}>
-          <Form.Control
-            placeholder="Procurar um Cliente"
-            value={buscaNome}
-            onChange={(e) => setBuscaNome(e.target.value)}
-          />
-          <Button variant="primary" id="botao-filtrar">
-            <BsSearch /> Pesquisar
-          </Button>
-        </InputGroup>
+              <Link to="/cliente/cadastrar">
+                <Button variant="success" className="mb-2">
+                  Cadastrar novo cliente
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
 
-        {/* Dropdown */}
-        <DropdownButton
-          id="dropdown-categoria"
-          title={buscaTipo || "Todas as categorias"}
-          variant="secondary"
-          className="mb-3"
-        >
-          <Dropdown.Item onClick={() => setBuscaTipo("")}>Todas</Dropdown.Item>
-          <Dropdown.Item onClick={() => setBuscaTipo("PF")}>PF</Dropdown.Item>
-          <Dropdown.Item onClick={() => setBuscaTipo("PJ")}>PJ</Dropdown.Item>
-        </DropdownButton>
-      </div>
-
-      {/* TABELA */}
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Id</th>
@@ -92,23 +109,22 @@ const VerCliente = () => {
         </thead>
 
         <tbody>
-          {cliente.length > 0 ? (
-            cliente.map((clien) => (
+          {clientesFiltrados.length > 0 ? (
+            clientesFiltrados.map((clien) => (
               <tr key={clien.id}>
                 <td>{clien.id}</td>
                 <td>{clien.nome}</td>
                 <td>{clien.email}</td>
-                <td>{clien.categorias}</td>
-                <td>{clien.documento}</td>
-                <td>{clien.numero}</td>
-                <td>{clien.dataNascimento}</td>
+                <td>{clien.tipo}</td>
+                <td>{clien.cpf_cnpj}</td>
+                <td>{clien.telefone}</td>
+                <td>{clien.data_nascimento}</td>
                 <td>{clien.cep}</td>
                 <td>{clien.logradouro}</td>
                 <td>{clien.complemento}</td>
                 <td>{clien.bairro}</td>
                 <td>{clien.cidade}</td>
                 <td>{clien.uf}</td>
-
                 <td>
                   <div style={{ display: "flex", gap: "8px" }}>
                     <Button
@@ -119,10 +135,9 @@ const VerCliente = () => {
                     >
                       Editar
                     </Button>
-
                     <Button
-                      size="sm"
                       variant="danger"
+                      size="sm"
                       onClick={() => handleDelete(clien.id, clien.nome)}
                     >
                       Excluir
@@ -140,7 +155,7 @@ const VerCliente = () => {
           )}
         </tbody>
       </Table>
-    </div>
+    </Container>
   );
 };
 

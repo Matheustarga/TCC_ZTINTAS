@@ -1,15 +1,17 @@
 import React from "react";
 import FormularioCliente from "../../components/FormularioCliente/FormularioCliente.jsx";
-import { Container } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 const CadastrarCliente = () => {
   return (
-    <div>
-      <Container>
-        <h1 className="text-center">Cadastrar Cliente</h1>
-        <FormularioCliente page="cadastrar" />
-      </Container>
-    </div>
+    <Container className="mt-4">
+      <Card className="shadow-sm">
+        <Card.Body>
+          <h2 className="mb-4 text-center">Cadastrar Cliente</h2>
+          <FormularioCliente page="cadastrar" />
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };
 

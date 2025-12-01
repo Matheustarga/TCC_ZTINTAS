@@ -1,18 +1,18 @@
+import React from "react";
 import FormularioCliente from "../../components/FormularioCliente/FormularioCliente.jsx";
-import { Container } from "react-bootstrap";
-
-
-
+import { Container, Card } from "react-bootstrap";
 
 const EditarCliente = () => {
   return (
-    <div>
-      <Container>
-        <h1 className="text-center">Editar Cliente</h1>
-        <FormularioCliente page="editar" />
-      </Container>
-    </div>
-  )
-}
+    <Container className="mt-4">
+      <Card className="shadow-sm">
+        <Card.Body>
+          <h2 className="mb-4 text-center">Editar Cliente</h2>
+          <FormularioCliente page="editar" />
+        </Card.Body>
+      </Card>
+    </Container>
+  );
+};
 
-export default EditarCliente
+export default EditarCliente;

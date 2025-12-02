@@ -83,7 +83,7 @@ const VerFuncionario = () => {
                 </Dropdown.Item>
               </DropdownButton>
 
-              <Link to="/funcionario/cadastrar">
+              <Link to="/funcionario">
                 <Button variant="success" className="mb-2">
                   Cadastrar novo funcionário
                 </Button>

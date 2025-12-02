@@ -78,7 +78,7 @@ const VerCliente = () => {
                 </Dropdown.Item>
               </DropdownButton>
 
-              <Link to="/cliente/cadastrar">
+              <Link to="/cliente">
                 <Button variant="success" className="mb-2">
                   Cadastrar novo cliente
                 </Button>
@@ -97,7 +97,7 @@ const VerCliente = () => {
             <th>Categoria</th>
             <th>CPF/CNPJ</th>
             <th>Telefone</th>
-            <th>Data de Nascimento</th>
+            {/* <th>Data de Nascimento</th> */}
             <th>Cep</th>
             <th>Logradouro</th>
             <th>Complemento</th>
@@ -118,7 +118,7 @@ const VerCliente = () => {
                 <td>{clien.tipo}</td>
                 <td>{clien.cpf_cnpj}</td>
                 <td>{clien.telefone}</td>
-                <td>{clien.data_nascimento}</td>
+                {/* <td>{clien.data_nascimento}</td> */}
                 <td>{clien.cep}</td>
                 <td>{clien.logradouro}</td>
                 <td>{clien.complemento}</td>

@@ -136,7 +136,7 @@ const VerTintas = () => {
                   ))}
                 </DropdownButton>
 
-                <Link to="/estoque/cadastrar">
+                <Link to="/estoque">
                   <Button variant="success" className="mb-2">
                     Cadastrar novo produto
                   </Button>

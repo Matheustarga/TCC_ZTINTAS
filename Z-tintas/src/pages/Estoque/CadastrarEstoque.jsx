@@ -301,7 +301,7 @@ const CadastrarEstoque = () => {
                   <td>{produto.id}</td>
                   <td>{produto.nome}</td>
                   <td>{produto.SKU}</td>
-                  <td>R$ {produto.precoVenda.toFixed(2)}</td>
+                  <td>R$ {produto.precoVenda}</td>
                   <td>{produto.quantidade}</td>
                   <td>
                     <span className={`badge ${produto.status === 'Ativo' ? 'bg-success' : 'bg-warning text-dark'}`}>

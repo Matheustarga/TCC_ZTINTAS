@@ -19,7 +19,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/produtos", produtoRouter);
 app.use("/categorias", categoriaRouter);
 app.use("/clientes", clienteRouter);
-app.get("/movimentacoes", movimentacaoRouter);
+app.use("/movimentacoes", movimentacaoRouter);
 
 app.get("/", (req, res) => {
   res.json({ status: "API Z-Tintas rodando 🚀" });

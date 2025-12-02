@@ -137,7 +137,7 @@ const CadastrarEstoque = () => {
       {loading && <Alert variant="info">Processando...</Alert>}
 
       {/* Formulário de Cadastro */}
-      <div className="mb-5 p-4 border rounded shadow-sm">
+      <div className="mb-5 p-4 border rounded shadow-sm bg-white">
         <h2>Cadastrar Novo Produto</h2>
         <Form onSubmit={handleSubmit}>
           <div className="row">
@@ -280,7 +280,7 @@ const CadastrarEstoque = () => {
       </div>
 
       {/* Listagem de Produtos */}
-      <div className="p-4 border rounded shadow-sm">
+      <div className="p-4 border rounded shadow-sm bg-white">
         <h2>Produtos Cadastrados</h2>
         <Table striped bordered hover responsive className="mt-3">
           <thead>

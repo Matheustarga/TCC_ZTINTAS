@@ -132,7 +132,7 @@ const VerTintas = () => {
         ) : (
           <Table striped bordered hover responsive className="shadow-sm">
             <thead
-              className="table-dark"
+              className="bg-custom-blue text-white"
               style={{ backgroundColor: "#081F66" }}
             >
               <tr>

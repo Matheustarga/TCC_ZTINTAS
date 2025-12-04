@@ -100,7 +100,7 @@ const VerCliente = () => {
             {/* <th>Data de Nascimento</th> */}
             <th>Cep</th>
             <th>Logradouro</th>
-            <th>Complemento</th>
+            {/* <th>Complemento</th> */}
             <th>Bairro</th>
             <th>Cidade</th>
             <th>UF</th>
@@ -116,12 +116,12 @@ const VerCliente = () => {
                 <td>{clien.nome}</td>
                 <td>{clien.email}</td>
                 <td>{clien.tipo}</td>
-                <td>{clien.cpf_cnpj}</td>
+                <td>{clien.documento}</td>
                 <td>{clien.telefone}</td>
                 {/* <td>{clien.data_nascimento}</td> */}
                 <td>{clien.cep}</td>
                 <td>{clien.logradouro}</td>
-                <td>{clien.complemento}</td>
+                {/* <td>{clien.complemento}</td> */}
                 <td>{clien.bairro}</td>
                 <td>{clien.cidade}</td>
                 <td>{clien.uf}</td>

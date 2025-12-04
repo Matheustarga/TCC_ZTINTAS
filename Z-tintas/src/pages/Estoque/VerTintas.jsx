@@ -151,7 +151,7 @@ const VerTintas = () => {
                   <td>{tinta.marca}</td>
                   <td>{tinta.medida}</td>
                   <td>{tinta.tamanho}</td>
-                  <td>{tinta.precoVenda.toFixed(2)}</td>
+                  <td>{tinta.precoVenda}</td>
                   <td>{tinta.quantidade}</td>
                   <td>
                     <span

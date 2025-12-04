@@ -89,7 +89,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "consultar",
-                        element: <EditarTinta />
+                        element: <VerTintas />
                     },
                     {
                         path: "tintas",

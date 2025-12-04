@@ -46,18 +46,22 @@ const VerTintas = () => {
   };
 
   // ✅ FUNÇÃO DE DELETAR ADICIONADA 
-  const handleDelete = async (id) => {
-    const confirmar = window.confirm(
-      "Tem certeza que deseja excluir esta tinta?"
-    );
-    if (!confirmar) return;
+  const handleToggleStatus = async (tinta) => {
+    const newStatus = tinta.status === "Ativo" ? "Pausado" : "Ativo";
+    const action = newStatus === "Pausado" ? "pausar" : "ativar";
+
+    if (!window.confirm(`Tem certeza que deseja ${action} esta tinta?`)) return;
 
     try {
-      await axios.delete(`${API_URL}/${id}`);
-      setTintas((prev) => prev.filter((t) => t.id !== id));
+      await axios.put(`${API_URL}/${tinta.id}`, { status: newStatus });
+      setTintas((prev) =>
+        prev.map((t) =>
+          t.id === tinta.id ? { ...t, status: newStatus } : t
+        )
+      );
     } catch (err) {
-      console.error("Erro ao deletar:", err);
-      alert("Erro ao deletar a tinta. Verifique o servidor.");
+      console.error("Erro ao alterar status:", err);
+      alert(`Erro ao ${action} a tinta. Verifique o servidor.`);
     }
   };
 
@@ -174,11 +178,11 @@ const VerTintas = () => {
                     </Link>
 
                     <Button
-                      variant="outline-danger"
+                      variant={tinta.status === "Ativo" ? "outline-warning" : "outline-success"}
                       size="sm"
-                      onClick={() => handleDelete(tinta.id)}
+                      onClick={() => handleToggleStatus(tinta)}
                     >
-                      <FaTrash />
+                      {tinta.status === "Ativo" ? "Pausar" : "Ativar"}
                     </Button>
                   </td>
                 </tr>

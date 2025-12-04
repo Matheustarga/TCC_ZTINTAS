@@ -38,6 +38,10 @@ CREATE TABLE produtos (
   imagemUrl TEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+ALTER TABLE produtos
+ADD COLUMN status VARCHAR(50) NOT NULL DEFAULT 'Ativo';
+
+
 CREATE TABLE categorias (
   id VARCHAR(50) PRIMARY KEY,
   nome VARCHAR(255)

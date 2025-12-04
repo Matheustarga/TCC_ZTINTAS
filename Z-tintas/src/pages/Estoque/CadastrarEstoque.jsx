@@ -117,7 +117,7 @@ const CadastrarEstoque = () => {
     setSuccess(null);
 
     try {
-      await axios.patch(`${API_URL}/${produto.id}`, { status: newStatus });
+      await axios.put(`${API_URL}/${produto.id}`, { status: newStatus });
       setSuccess(`Produto ${action} com sucesso!`);
       fetchProdutos(); // Recarrega a lista
     } catch (err) {
@@ -318,14 +318,14 @@ const CadastrarEstoque = () => {
                     >
                       {produto.status === 'Ativo' ? 'Pausar' : 'Ativar'}
                     </Button>
-                    <Button
+                    {/* <Button
                       variant="danger"
                       size="sm"
                       onClick={() => handleDelete(produto.id)}
                       disabled={loading}
                     >
                       Deletar
-                    </Button>
+                    </Button> */}
                   </td>
                 </tr>
               ))

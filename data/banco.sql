@@ -38,6 +38,10 @@ CREATE TABLE produtos (
   imagemUrl TEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+ALTER TABLE produtos
+ADD COLUMN status VARCHAR(50) NOT NULL DEFAULT 'Ativo';
+
+
 CREATE TABLE categorias (
   id VARCHAR(50) PRIMARY KEY,
   nome VARCHAR(255)
@@ -94,3 +98,4 @@ INSERT INTO categorias (id, nome) VALUES ('2', 'CNPJ');
 -- Tabela: clientes
 INSERT INTO clientes (id, nome, email, documento, tipo, telefone, dataNascimento, endereco, status, categorias, cep, logradouro, complemento, bairro, cidade, uf, numero) VALUES ('1', 'Maria das Graças', 'maria@gmail.com', '12345678910', 'PF', '27970707070', '2007-07-07', '{"cep": "29999666", "logradouro": "Rua dos Alfeneiros", "complemento": "Número 4", "bairro": "Terra do nunca", "cidade": "Ilha da bruxaria", "uf": "SP"}', 'Ativo', NULL, '29999666', 'Rua dos Alfeneiros', 'Número 4', 'Terra do nunca', 'Ilha da bruxaria', 'SP', NULL);
 INSERT INTO clientes (id, nome, email, documento, tipo, telefone, dataNascimento, endereco, status, categorias, cep, logradouro, complemento, bairro, cidade, uf, numero) VALUES ('093f', 'Fernando De Brito Martins', 'fernandobt481@gmail.com', '12312312312', NULL, NULL, '18052006', NULL, NULL, 'CPF', '79013-794', 'bah', 'bag', 'Morada verde', 'Campo Grande', 'ES', '67992764515');
+

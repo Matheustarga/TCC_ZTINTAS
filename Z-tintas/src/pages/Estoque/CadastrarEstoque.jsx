@@ -310,15 +310,6 @@ const CadastrarEstoque = () => {
                   </td>
                   <td>
                     <Button
-                      variant={produto.status === 'Ativo' ? 'warning' : 'success'}
-                      size="sm"
-                      className="me-2"
-                      onClick={() => handleToggleStatus(produto)}
-                      disabled={loading}
-                    >
-                      {produto.status === 'Ativo' ? 'Pausar' : 'Ativar'}
-                    </Button>
-                    <Button
                       variant="danger"
                       size="sm"
                       onClick={() => handleDelete(produto.id)}

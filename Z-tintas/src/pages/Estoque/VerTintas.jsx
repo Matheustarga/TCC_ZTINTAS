@@ -160,7 +160,7 @@ const VerTintas = () => {
                   <td>
                     <span
                       className={`badge ${
-                        tinta.status === "Ativo" ? "bg-success" : "bg-danger"
+                        tinta.status === "Ativo" ? "bg-success" : "bg-warning text-dark"
                       }`}
                     >
                       {tinta.status}

@@ -263,15 +263,7 @@ const CadastrarEstoque = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formImagemUrl">
-            <Form.Label>URL da Imagem</Form.Label>
-            <Form.Control
-              type="text"
-              name="imagemUrl"
-              value={formData.imagemUrl}
-              onChange={handleChange}
-            />
-          </Form.Group>
+          
 
           <Button variant="primary" type="submit" disabled={loading}>
             {loading ? 'Cadastrando...' : 'Cadastrar Produto'}

@@ -89,7 +89,7 @@ INSERT INTO usuarios (id, nome, email, senha, cargo, cpf, numero, usuario, image
 ('u001', 'Eduardo Gonçalves', 'eduardo.goncalves@ztintas.com', '123456', 'Administrador', '12345678901', '27999990001', 'eduardo.g', 'https://example.com/imagens/usuarios/eduardo.jpg', '123456'),
 ('u002', 'Mariana Alves', 'mariana.alves@ztintas.com', '123456', 'Coordenadora Comercial', '23456789012', '27999990002', 'mariana.alves', 'https://example.com/imagens/usuarios/mariana.jpg', '123456'),
 ('u003', 'Carlos Henrique', 'carlos.henrique@ztintas.com', '123456', 'Vendedor Externo', '34567890123', '27999990003', 'carlos.h', 'https://example.com/imagens/usuarios/carlos.jpg', '123456'),
-('u004', 'Fernando Brito', 'fernado@gmail.com', '123456', 'Assistente Administrativo', '45678901234', '27999990004', 'fernando.b', 'https://example.com/imagens/usuarios/ana.jpg', '123456'),
+('u004', 'Fernando Brito', 'fernando@gmail.com', '123456', 'Assistente Administrativo', '45678901234', '27999990004', 'fernando.b', 'https://direitoprocessual.org/wp-content/uploads/2020/06/fernando-de-brito.gif', '123456'),
 ('u005', 'Rodrigo Martins', 'rodrigo.martins@ztintas.com', '123456', 'Técnico de Suporte', '56789012345', '27999990005', 'rodrigo.m', 'https://example.com/imagens/usuarios/rodrigo.jpg', '123456');
 
 ------------------------------------------------------------
@@ -109,11 +109,11 @@ INSERT INTO produtos (id, SKU, nome, descricao, categoria, marca, medida, tamanh
 -- Tabela: categorias
 ------------------------------------------------------------
 INSERT INTO categorias (id, nome) VALUES
-('c001', 'Pessoa Física'),
-('c002', 'Pessoa Jurídica'),
-('c003', 'Agência de Publicidade'),
-('c004', 'Bureau de Impressão'),
-('c005', 'Loja de Comunicação Visual');
+('c001', 'PF'),
+('c002', 'PJ');
+-- ('c003', 'Agência de Publicidade'),
+-- ('c004', 'Bureau de Impressão'),
+-- ('c005', 'Loja de Comunicação Visual');
 
 ------------------------------------------------------------
 -- Tabela: clientes

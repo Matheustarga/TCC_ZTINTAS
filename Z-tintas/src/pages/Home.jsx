@@ -35,9 +35,6 @@ const Home = () => {
   }, []);
 
   // VAMO QUERER MEU FI QUE ISSO 
-  const produtosComEstoqueBaixo = produtos.filter(
-    (p) => p.quantidade < p.quantidadeMinima
-  );
 
   const ultimasMovimentacoes = movimentacoes.slice(-5).reverse();
 
@@ -45,12 +42,12 @@ const Home = () => {
 
   return (
     <Container className="mt-5">
-      <h1 className="mb-4">Dashboard - Sistema de Almoxarifado</h1>
+      <h1 className="mb-4 text-center">Dashboard - Z Tintas</h1>
 
       {error && <Alert variant="danger">Erro: {error}</Alert>}
 
       {/* Resumo Rápido */}
-      <Row className="mb-4">
+      <Row className="mb-4 justify-content-center">
         <Col md={3}>
           <Card className="text-center">
             <Card.Body>
@@ -74,9 +71,10 @@ const Home = () => {
       </Row>
 
       {/* Alertas de Estoque Baixo */}
+     
 
       {/* Ações Rápidas */}
-      <Row className="mb-4">
+      <Row className="mb-4 justify-content-center">
         <Col md={4}>
           <Card>
             <Card.Body className="text-center">
@@ -89,7 +87,7 @@ const Home = () => {
         </Col>
         <Col md={4}>
           <Card>
-            <Card.Body className="text-center ">
+            <Card.Body className="text-center">
               <h5>Registrar Movimentação</h5>
               <Link to="/movimentacoes">
                 <Button variant="info">Registrar</Button>
@@ -114,7 +112,7 @@ const Home = () => {
                     <div key={mov.id} className="mb-3 pb-3 border-bottom">
                       <div className="d-flex justify-content-between">
                         <span>
-                          <strong>ID: {mov.id}</strong> - {mov.tipo === "entrada" ? "📥 Entrada" : "📤 Saída"}
+                          <strong>ID: {mov.id}</strong> - {mov.tipo === "entrada" ? " Entrada" : " Saída"}
                         </span>
                         <span className="text-muted">
                           {new Date(mov.dataMovimentacao).toLocaleString("pt-BR")}

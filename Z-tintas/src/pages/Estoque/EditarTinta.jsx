@@ -226,15 +226,7 @@ const EditarEstoque = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formImagemUrl">
-            <Form.Label>URL da Imagem</Form.Label>
-            <Form.Control
-              type="text"
-              name="imagemUrl"
-              value={formData.imagemUrl}
-              onChange={handleChange}
-            />
-          </Form.Group>
+          
           
           <Form.Group className="mb-3" controlId="formStatus">
             <Form.Label>Status</Form.Label>
@@ -245,7 +237,6 @@ const EditarEstoque = () => {
             >
               <option value="Ativo">Ativo</option>
               <option value="Pausado">Pausado</option>
-              <option value="Esgotado">Esgotado</option>
             </Form.Select>
           </Form.Group>
 

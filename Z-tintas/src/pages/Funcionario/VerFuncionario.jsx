@@ -66,7 +66,7 @@ const VerFuncionario = () => {
               </InputGroup>
             </Col>
             <Col md={4} className="text-end">
-              <DropdownButton
+              {/* <DropdownButton
                 id="dropdown-categoria-func"
                 title={buscaTipo || "Todas as categorias"}
                 variant="secondary"
@@ -81,7 +81,7 @@ const VerFuncionario = () => {
                 <Dropdown.Item onClick={() => setBuscaTipo("PJ")}>
                   PJ
                 </Dropdown.Item>
-              </DropdownButton>
+              </DropdownButton> */}
 
               <Link to="/funcionario">
                 <Button variant="success" className="mb-2">
@@ -96,10 +96,10 @@ const VerFuncionario = () => {
       <Table striped bordered hover responsive>
         <thead>
           <tr>
-            <th>Id</th>
+            {/* <th>Id</th> */}
             <th>Nome Completo</th>
             <th>Email</th>
-            <th>Categoria</th>
+            {/* <th>Categoria</th> */}
             <th>CPF/CNPJ</th>
             <th>Telefone</th>
             <th>Cargo</th>
@@ -110,12 +110,12 @@ const VerFuncionario = () => {
           {funcionariosFiltrados.length > 0 ? (
             funcionariosFiltrados.map((func) => (
               <tr key={func.id}>
-                <td>{func.id}</td>
+                {/* <td>{func.id}</td> */}
                 <td>{func.nome}</td>
                 <td>{func.email}</td>
-                <td>{func.tipo}</td>
-                <td>{func.cpf_cnpj}</td>
-                <td>{func.telefone}</td>
+                {/* <td>{func.tipo}</td> */}
+                <td>{func.cpf}</td>
+                <td>{func.numero}</td>
                 <td>{func.cargo}</td>
                 <td>
                   <div style={{ display: "flex", gap: "8px" }}>

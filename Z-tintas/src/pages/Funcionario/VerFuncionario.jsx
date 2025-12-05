@@ -96,7 +96,7 @@ const VerFuncionario = () => {
       <Table striped bordered hover responsive>
         <thead>
           <tr>
-            <th>Id</th>
+            {/* <th>Id</th> */}
             <th>Nome Completo</th>
             <th>Email</th>
             {/* <th>Categoria</th> */}
@@ -110,7 +110,7 @@ const VerFuncionario = () => {
           {funcionariosFiltrados.length > 0 ? (
             funcionariosFiltrados.map((func) => (
               <tr key={func.id}>
-                <td>{func.id}</td>
+                {/* <td>{func.id}</td> */}
                 <td>{func.nome}</td>
                 <td>{func.email}</td>
                 {/* <td>{func.tipo}</td> */}

@@ -91,7 +91,7 @@ const VerCliente = () => {
       <Table striped bordered hover responsive>
         <thead>
           <tr>
-            <th>Id</th>
+            {/* <th>Id</th> */}
             <th>Nome Completo</th>
             <th>Email</th>
             <th>Categoria</th>
@@ -112,7 +112,7 @@ const VerCliente = () => {
           {clientesFiltrados.length > 0 ? (
             clientesFiltrados.map((clien) => (
               <tr key={clien.id}>
-                <td>{clien.id}</td>
+                {/* <td>{clien.id}</td> */}
                 <td>{clien.nome}</td>
                 <td>{clien.email}</td>
                 <td>{clien.tipo}</td>
